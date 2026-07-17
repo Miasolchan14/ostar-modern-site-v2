@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="奥斯达通信用户登录、注册和游客访问"
+  >
+
+  <title>登录｜奥斯达通信</title>
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body class="login-page">
+
+  <main class="login-layout">
+
+    <!-- 左侧品牌介绍 -->
+    <section class="login-brand-panel">
+
+      <div class="login-grid-background"></div>
+
+      <div class="login-brand-content">
+
+        <a class="login-brand" href="index.html">
+
+          <img
+            src="images/logo/ostar-logo-icon.png"
+            alt="奥斯达通信 Logo"
+          >
+
+          <div>
+            <strong>奥斯达通信</strong>
+            <span>OSTAR TELECOM</span>
+          </div>
+
+        </a>
+
+        <div class="login-intro">
+
+          <span class="login-eyebrow">
+            OSTAR DIGITAL SERVICE
+          </span>
+
+          <h1>
+            连接企业服务
+            <span>开启数字未来</span>
+          </h1>
+
+          <p>
+            登录奥斯达通信服务平台，了解企业通信网络、
+            项目服务、行业资讯和客户解决方案。
+          </p>
+
+        </div>
+
+        <div class="login-feature-list">
+
+          <article>
+            <span>01</span>
+
+            <div>
+              <strong>项目服务查询</strong>
+              <small>快速了解企业通信服务和解决方案</small>
+            </div>
+          </article>
+
+          <article>
+            <span>02</span>
+
+            <div>
+              <strong>新闻动态中心</strong>
+              <small>获取公司新闻、行业新闻和媒体报道</small>
+            </div>
+          </article>
+
+          <article>
+            <span>03</span>
+
+            <div>
+              <strong>客户服务支持</strong>
+              <small>提交项目咨询和企业服务需求</small>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+
+      <div class="login-brand-footer">
+        © 2026 深圳市奥斯达通信有限公司
+      </div>
+
+    </section>
+
+
+    <!-- 右侧登录区域 -->
+    <section class="login-form-panel">
+
+      <div class="login-form-wrapper">
+
+        <div class="login-top-actions">
+
+          <a href="index.html">
+            <span>←</span>
+            返回网站首页
+          </a>
+
+          <span class="secure-label">
+            安全访问
+          </span>
+
+        </div>
+
+
+        <div class="auth-card">
+
+          <div class="auth-heading">
+
+            <span class="auth-eyebrow">
+              ACCOUNT CENTER
+            </span>
+
+            <h2>欢迎访问奥斯达通信</h2>
+
+            <p>
+              请选择登录方式进入网站服务中心。
+            </p>
+
+          </div>
+
+
+          <!-- 切换按钮 -->
+          <div class="auth-tabs" role="tablist">
+
+            <button
+              class="auth-tab active"
+              type="button"
+              data-auth-target="loginPanel"
+            >
+              账号登录
+            </button>
+
+            <button
+              class="auth-tab"
+              type="button"
+              data-auth-target="registerPanel"
+            >
+              用户注册
+            </button>
+
+            <button
+              class="auth-tab"
+              type="button"
+              data-auth-target="guestPanel"
+            >
+              游客访问
+            </button>
+
+          </div>
+
+
+          <!-- 登录 -->
+          <section
+            class="auth-panel active"
+            id="loginPanel"
+          >
+
+            <form id="loginForm" novalidate>
+
+              <label class="form-field">
+
+                <span>账号</span>
+
+                <div class="input-wrapper">
+
+                  <span class="input-icon">◎</span>
+
+                  <input
+                    id="loginAccount"
+                    type="text"
+                    autocomplete="username"
+                    placeholder="请输入邮箱；管理员可输入 miasol"
+                    required
+                  >
+
+                </div>
+
+              </label>
+
+
+              <label class="form-field">
+
+                <span>密码</span>
+
+                <div class="input-wrapper">
+
+                  <span class="input-icon">◇</span>
+
+                  <input
+                    id="loginPassword"
+                    type="password"
+                    autocomplete="current-password"
+                    placeholder="请输入登录密码"
+                    required
+                  >
+
+                  <button
+                    class="password-toggle"
+                    type="button"
+                    data-password-target="loginPassword"
+                    aria-label="显示或隐藏密码"
+                  >
+                    显示
+                  </button>
+
+                </div>
+
+              </label>
+
+
+              <div class="form-options">
+
+                <label class="remember-option">
+                  <input type="checkbox">
+                  <span>记住登录状态</span>
+                </label>
+
+                <button
+                  class="text-button"
+                  type="button"
+                  id="forgotPasswordButton"
+                >
+                  忘记密码？
+                </button>
+
+              </div>
+
+
+              <button
+                class="auth-submit-button"
+                type="submit"
+              >
+                登录账号
+                <span>→</span>
+              </button>
+
+              <p
+                class="form-message"
+                id="loginMessage"
+                aria-live="polite"
+              ></p>
+
+            </form>
+
+          </section>
+
+
+          <!-- 注册 -->
+          <section
+            class="auth-panel"
+            id="registerPanel"
+          >
+
+            <form id="registerForm" novalidate>
+
+              <label class="form-field">
+
+                <span>姓名或企业名称</span>
+
+                <div class="input-wrapper">
+
+                  <span class="input-icon">◎</span>
+
+                  <input
+                    id="registerName"
+                    type="text"
+                    placeholder="请输入姓名或企业名称"
+                    required
+                  >
+
+                </div>
+
+              </label>
+
+
+              <label class="form-field">
+
+                <span>电子邮箱</span>
+
+                <div class="input-wrapper">
+
+                  <span class="input-icon">@</span>
+
+                  <input
+                    id="registerEmail"
+                    type="email"
+                    autocomplete="email"
+                    placeholder="请输入电子邮箱"
+                    required
+                  >
+
+                </div>
+
+              </label>
+
+
+              <label class="form-field">
+
+                <span>设置密码</span>
+
+                <div class="input-wrapper">
+
+                  <span class="input-icon">◇</span>
+
+                  <input
+                    id="registerPassword"
+                    type="password"
+                    autocomplete="new-password"
+                    placeholder="至少输入6位密码"
+                    minlength="6"
+                    required
+                  >
+
+                  <button
+                    class="password-toggle"
+                    type="button"
+                    data-password-target="registerPassword"
+                  >
+                    显示
+                  </button>
+
+                </div>
+
+              </label>
+
+
+              <label class="form-field">
+
+                <span>确认密码</span>
+
+                <div class="input-wrapper">
+
+                  <span class="input-icon">◇</span>
+
+                  <input
+                    id="confirmPassword"
+                    type="password"
+                    autocomplete="new-password"
+                    placeholder="请再次输入密码"
+                    minlength="6"
+                    required
+                  >
+
+                </div>
+
+              </label>
+
+
+              <label class="agreement-option">
+
+                <input
+                  id="registerAgreement"
+                  type="checkbox"
+                  required
+                >
+
+                <span>
+                  我已阅读并同意网站用户服务条款和隐私说明
+                </span>
+
+              </label>
+
+
+              <button
+                class="auth-submit-button"
+                type="submit"
+              >
+                创建账号
+                <span>→</span>
+              </button>
+
+              <p
+                class="form-message"
+                id="registerMessage"
+                aria-live="polite"
+              ></p>
+
+            </form>
+
+          </section>
+
+
+          <!-- 游客访问 -->
+          <section
+            class="auth-panel"
+            id="guestPanel"
+          >
+
+            <div class="guest-access-card">
+
+              <div class="guest-icon">
+                ↗
+              </div>
+
+              <h3>以游客身份浏览网站</h3>
+
+              <p>
+                游客无需注册即可浏览网站首页、服务项目、
+                新闻动态、客户案例和联系方式。
+              </p>
+
+              <div class="guest-permissions">
+
+                <div>
+                  <span>✓</span>
+                  浏览公开页面
+                </div>
+
+                <div>
+                  <span>✓</span>
+                  查看新闻动态
+                </div>
+
+                <div>
+                  <span>✓</span>
+                  查看服务和案例
+                </div>
+
+                <div class="permission-disabled">
+                  <span>×</span>
+                  无法使用管理员功能
+                </div>
+
+              </div>
+
+              <button
+                class="auth-submit-button"
+                id="guestLoginButton"
+                type="button"
+              >
+                以游客身份进入
+                <span>→</span>
+              </button>
+
+              <p
+                class="form-message"
+                id="guestMessage"
+                aria-live="polite"
+              ></p>
+
+            </div>
+
+          </section>
+
+        </div>
+
+
+        <div class="auth-security-note">
+
+          <span>盾</span>
+
+          <p>
+            管理员账号和用户密码将通过安全认证后台保存，
+            不会直接写入公开网页代码。
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/auth.js"></script>
+
+</body>
+</html>

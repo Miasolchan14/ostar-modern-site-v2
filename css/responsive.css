@@ -1,0 +1,444 @@
+@media (max-width: 1180px) {
+
+  .header-main {
+    grid-template-columns: 250px 1fr 130px;
+    column-gap: 25px;
+  }
+
+  .brand-logo {
+    width: 62px;
+    height: 62px;
+  }
+
+  .brand-name strong {
+    font-size: 20px;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr 480px;
+    gap: 45px;
+  }
+
+  .hero-content h1 {
+    font-size: 62px;
+  }
+
+  .floating-card-one {
+    left: 0;
+  }
+
+  .floating-card-two {
+    right: 0;
+  }
+}
+
+
+@media (max-width: 900px) {
+
+  .container {
+    width: min(calc(100% - 36px), 1480px);
+  }
+
+  .header-main {
+    padding: 20px 0;
+    grid-template-columns: 1fr auto;
+    row-gap: 20px;
+  }
+
+  .header-search {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .navigation-inner {
+    justify-content: flex-start;
+    gap: 32px;
+    overflow-x: auto;
+  }
+
+  .nav-link {
+    white-space: nowrap;
+  }
+
+  .hero-container {
+    padding: 75px 0;
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    padding: 0;
+  }
+
+  .hero-visual {
+    min-height: 560px;
+  }
+
+  .company-data-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .data-item:nth-child(2) {
+    border-right: 0;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .container {
+    width: min(calc(100% - 24px), 1480px);
+  }
+
+  .site-header {
+    position: relative;
+  }
+
+  .header-main {
+    min-height: auto;
+  }
+
+  .brand {
+    gap: 10px;
+  }
+
+  .brand-logo {
+    width: 52px;
+    height: 52px;
+  }
+
+  .brand-name strong {
+    font-size: 17px;
+  }
+
+  .brand-name small {
+    font-size: 8px;
+  }
+
+  .login-button {
+    min-width: 92px;
+    height: 44px;
+  }
+
+  .hot-search {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .navigation-inner {
+    gap: 25px;
+  }
+
+  .hero-section,
+  .hero-container {
+    min-height: auto;
+  }
+
+  .hero-content h1 {
+    font-size: 47px;
+    letter-spacing: -3px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+  }
+
+  .hero-visual {
+    min-height: 470px;
+  }
+
+  .network-card {
+    padding: 22px;
+  }
+
+  .network-card-header {
+    flex-direction: column;
+  }
+
+  .chart-area {
+    height: 175px;
+  }
+
+  .network-services {
+    grid-template-columns: 1fr;
+  }
+
+  .network-services div:nth-child(n + 2) {
+    display: none;
+  }
+
+  .floating-card {
+    min-width: 130px;
+    padding: 11px;
+  }
+
+  .floating-card-two {
+    top: 125px;
+  }
+
+  .floating-card-three {
+    right: 0;
+  }
+
+  .company-data-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .data-item {
+    min-height: 95px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .next-section-placeholder {
+    padding: 75px 0;
+  }
+
+  .next-section-placeholder h2 {
+    font-size: 29px;
+  }
+}
+/* ========================================
+   首页新增区域响应式
+======================================== */
+
+@media (max-width: 1180px) {
+
+  .solutions-grid,
+  .advantages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-preview-grid {
+    grid-template-columns: 480px 1fr;
+    gap: 60px;
+  }
+
+  .about-metric-two {
+    right: 0;
+  }
+}
+
+
+@media (max-width: 900px) {
+
+  .section-block {
+    padding: 90px 0;
+  }
+
+  .about-preview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-visual {
+    width: min(100%, 580px);
+    margin: 0 auto;
+  }
+
+  .advantages-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .section-block {
+    padding: 72px 0;
+  }
+
+  .section-heading-center {
+    margin-bottom: 42px;
+    text-align: left;
+  }
+
+  .section-heading p {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .solutions-grid,
+  .advantages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .solution-card {
+    min-height: 460px;
+  }
+
+  .about-visual {
+    min-height: 510px;
+  }
+
+  .about-visual-main {
+    top: 55px;
+    width: calc(100% - 40px);
+    min-height: 360px;
+    padding: 40px 28px;
+  }
+
+  .about-visual-main h3 {
+    font-size: 31px;
+  }
+
+  .about-metric {
+    min-width: 145px;
+    padding: 16px;
+  }
+
+  .about-metric-one {
+    right: 0;
+  }
+
+  .about-metric-two {
+    top: auto;
+    right: 0;
+    bottom: 42px;
+  }
+
+  .about-metric-three {
+    right: auto;
+    bottom: 0;
+    left: 18px;
+  }
+
+  .about-values {
+    grid-template-columns: 1fr;
+  }
+
+  .about-button {
+    width: 100%;
+  }
+}
+
+/* ========================================
+   行业动态、合作客户、联系与页脚适配
+======================================== */
+
+@media (max-width: 1180px) {
+
+  .home-news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .partners-logo-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr 1.4fr;
+    gap: 60px;
+  }
+
+  .footer-contact {
+    grid-column: 1 / -1;
+  }
+}
+
+
+@media (max-width: 900px) {
+
+  .featured-news-card {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-news-image {
+    min-height: 330px;
+  }
+
+  .home-contact-card {
+    padding: 55px 45px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .home-contact-actions {
+    width: 100%;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-contact {
+    grid-column: auto;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .news-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .featured-news-content {
+    padding: 30px 24px;
+  }
+
+  .featured-news-content h3 {
+    font-size: 24px;
+  }
+
+  .news-list-card {
+    padding: 23px;
+    grid-template-columns: 1fr;
+  }
+
+  .partners-logo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .partner-logo-card {
+    min-height: 135px;
+    padding: 17px;
+  }
+
+  .partners-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 19px;
+  }
+
+  .home-contact-section {
+    padding-bottom: 72px;
+  }
+
+  .home-contact-card {
+    min-height: auto;
+    padding: 45px 26px;
+    border-radius: 24px;
+  }
+
+  .home-contact-content h2 {
+    font-size: 34px;
+  }
+
+  .footer-main {
+    padding: 65px 0 50px;
+    gap: 45px;
+  }
+
+  .footer-navigation {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-bottom-inner {
+    padding: 22px 0;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+}

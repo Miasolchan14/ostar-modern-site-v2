@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="奥斯达通信新闻详情"
+  >
+
+  <title>新闻详情｜奥斯达通信</title>
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/news.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body class="news-detail-page">
+
+  <!-- ==============================
+       网站顶部
+  =============================== -->
+  <header class="site-header">
+
+    <div class="header-main container">
+
+      <a
+        class="brand"
+        href="index.html"
+        aria-label="返回网站首页"
+      >
+
+        <img
+          class="brand-logo"
+          src="images/logo/ostar-logo-icon.png"
+          alt="奥斯达通信 Logo"
+        >
+
+        <span class="brand-name">
+          <strong>奥斯达通信</strong>
+          <small>OSTAR TELECOM</small>
+        </span>
+
+      </a>
+
+
+      <div class="header-search">
+
+        <div class="search-box">
+
+          <input
+            id="siteSearchInput"
+            type="search"
+            placeholder="搜索新闻、服务、解决方案"
+            aria-label="网站搜索"
+          >
+
+          <button
+            id="siteSearchButton"
+            type="button"
+          >
+            搜索
+          </button>
+
+        </div>
+
+        <div class="hot-search">
+
+          <span class="hot-label">
+            热门搜索：
+          </span>
+
+          <a href="services.html">
+            互联网接入
+          </a>
+
+          <a href="services.html">
+            IP-VPN
+          </a>
+
+          <a href="services.html">
+            数据中心
+          </a>
+
+          <a href="news.html">
+            数字化服务
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="header-account">
+
+        <a
+          class="login-button"
+          href="login.html"
+        >
+          <span class="login-icon">↗</span>
+          <span>登录</span>
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <nav
+      class="main-navigation"
+      aria-label="主导航"
+    >
+
+      <div class="container navigation-inner">
+
+        <a class="nav-link" href="index.html">
+          网站首页
+        </a>
+
+        <a class="nav-link" href="about.html">
+          关于我们
+        </a>
+
+        <a class="nav-link" href="services.html">
+          服务项目
+        </a>
+
+        <a class="nav-link active" href="news.html">
+          新闻动态
+        </a>
+
+        <a class="nav-link" href="cases.html">
+          客户案例
+        </a>
+
+        <a class="nav-link" href="contact.html">
+          联系方式
+        </a>
+
+      </div>
+
+    </nav>
+
+  </header>
+
+
+  <main class="news-detail-main">
+
+    <section class="news-detail-section">
+
+      <div class="container">
+
+        <!-- 加载、错误或找不到新闻时显示 -->
+        <div
+          class="news-detail-status"
+          id="newsDetailStatus"
+        >
+          <div class="news-detail-loading-icon"></div>
+
+          <h1>正在读取新闻内容</h1>
+
+          <p>
+            正在连接奥斯达通信新闻数据库……
+          </p>
+        </div>
+
+
+        <!-- 新闻正文 -->
+        <article
+          class="news-detail-article"
+          id="newsDetailArticle"
+          hidden
+        >
+
+          <!-- 面包屑 -->
+          <nav
+            class="news-detail-breadcrumb"
+            aria-label="当前位置"
+          >
+            <a href="index.html">
+              网站首页
+            </a>
+
+            <span>›</span>
+
+            <a href="news.html">
+              新闻动态
+            </a>
+
+            <span>›</span>
+
+            <strong id="detailBreadcrumbCategory">
+              新闻详情
+            </strong>
+          </nav>
+
+
+          <!-- 新闻标题 -->
+          <header class="news-detail-header">
+
+            <div class="news-detail-meta">
+
+              <span
+                class="news-detail-category"
+                id="detailCategory"
+              >
+                新闻动态
+              </span>
+
+              <time id="detailDate">
+                正在读取日期
+              </time>
+
+            </div>
+
+            <h1 id="detailTitle">
+              新闻标题
+            </h1>
+
+            <p
+              class="news-detail-summary"
+              id="detailSummary"
+            >
+              新闻摘要
+            </p>
+
+          </header>
+
+
+          <!-- 新闻封面 -->
+          <figure
+            class="news-detail-cover"
+            id="detailCoverWrapper"
+            hidden
+          >
+
+            <img
+              id="detailCoverImage"
+              src=""
+              alt=""
+            >
+
+          </figure>
+
+
+          <div class="news-detail-layout">
+
+            <!-- 正文 -->
+            <div
+              class="news-detail-content"
+              id="detailContent"
+            ></div>
+
+
+            <!-- 右侧信息栏 -->
+            <aside class="news-detail-sidebar">
+
+              <div class="news-detail-info-card">
+
+                <span class="detail-side-label">
+                  ARTICLE INFORMATION
+                </span>
+
+                <h2>新闻信息</h2>
+
+                <dl>
+
+                  <div>
+                    <dt>新闻分类</dt>
+                    <dd id="detailSideCategory">
+                      新闻动态
+                    </dd>
+                  </div>
+
+                  <div>
+                    <dt>发布日期</dt>
+                    <dd id="detailSideDate">
+                      正在读取
+                    </dd>
+                  </div>
+
+                  <div>
+                    <dt>发布单位</dt>
+                    <dd>
+                      深圳市奥斯达通信有限公司
+                    </dd>
+                  </div>
+
+                </dl>
+
+              </div>
+
+
+              <div class="news-detail-action-card">
+
+                <span class="detail-side-label">
+                  NEWS CENTER
+                </span>
+
+                <h2>更多新闻动态</h2>
+
+                <p>
+                  返回新闻中心，继续查看公司新闻、
+                  行业资讯和媒体报道。
+                </p>
+
+                <a
+                  class="detail-back-button"
+                  href="news.html"
+                >
+                  返回新闻中心
+                  <span>→</span>
+                </a>
+
+                <button
+                  class="detail-copy-button"
+                  id="copyNewsLinkButton"
+                  type="button"
+                >
+                  复制新闻链接
+                </button>
+
+                <p
+                  class="detail-copy-message"
+                  id="copyNewsLinkMessage"
+                  aria-live="polite"
+                ></p>
+
+              </div>
+
+            </aside>
+
+          </div>
+
+
+          <!-- 底部引导 -->
+          <footer class="news-detail-footer">
+
+            <div>
+
+              <span>
+                OSTAR TELECOM
+              </span>
+
+              <h2>
+                为企业构建稳定、专业的通信服务
+              </h2>
+
+              <p>
+                了解奥斯达通信的互联网接入、数据中心、
+                系统集成及通信工程服务。
+              </p>
+
+            </div>
+
+            <a href="contact.html">
+              联系项目顾问
+              <span>→</span>
+            </a>
+
+          </footer>
+
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ==============================
+       网站底部
+  =============================== -->
+  <footer class="site-footer">
+
+    <div class="container footer-main">
+
+      <div class="footer-brand-column">
+
+        <a
+          class="footer-brand"
+          href="index.html"
+        >
+
+          <img
+            src="images/logo/ostar-logo-icon.png"
+            alt="奥斯达通信 Logo"
+          >
+
+          <div>
+            <strong>奥斯达通信</strong>
+            <span>OSTAR TELECOM</span>
+          </div>
+
+        </a>
+
+        <p>
+          专注企业通信网络、互联网接入、系统集成、
+          通信工程及数字化服务。
+        </p>
+
+      </div>
+
+
+      <div class="footer-navigation">
+
+        <div>
+          <h3>网站导航</h3>
+          <a href="index.html">网站首页</a>
+          <a href="about.html">关于我们</a>
+          <a href="services.html">服务项目</a>
+        </div>
+
+        <div>
+          <h3>内容中心</h3>
+          <a href="news.html">新闻动态</a>
+          <a href="cases.html">客户案例</a>
+          <a href="contact.html">联系方式</a>
+        </div>
+
+        <div>
+          <h3>新闻分类</h3>
+          <a href="news-company.html">公司新闻</a>
+          <a href="news-industry.html">行业新闻</a>
+          <a href="news-media.html">媒体报道</a>
+        </div>
+
+      </div>
+
+
+      <div class="footer-contact">
+
+        <span class="footer-small-title">
+          BUSINESS CONTACT
+        </span>
+
+        <h3>联系我们</h3>
+
+        <p>
+          欢迎提交您的项目需求，
+          我们将安排专业顾问与您联系。
+        </p>
+
+        <a href="contact.html">
+          提交项目需求
+          <span>→</span>
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <div class="container footer-bottom-inner">
+
+        <span>
+          © 2026 深圳市奥斯达通信有限公司
+        </span>
+
+        <div>
+          <a href="login.html">用户登录</a>
+          <a href="admin.html">管理员入口</a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- 脚本顺序不能改变 -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/news-detail.js"></script>
+  <script src="js/search.js"></script>
+
+</body>
+</html>

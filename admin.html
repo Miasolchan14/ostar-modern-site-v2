@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="奥斯达通信网站管理员后台"
+  >
+
+  <title>管理后台｜奥斯达通信</title>
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body class="admin-page">
+
+  <!-- ==============================
+       管理员身份验证加载层
+  =============================== -->
+  <div class="admin-auth-loading" id="adminAuthLoading">
+
+    <div class="admin-loading-card">
+
+      <div class="admin-loading-logo">
+
+        <img
+          src="images/logo/ostar-logo-icon.png"
+          alt="奥斯达通信"
+        >
+
+      </div>
+
+      <div class="admin-loading-spinner"></div>
+
+      <h1>正在验证管理员身份</h1>
+
+      <p id="adminLoadingText">
+        正在连接奥斯达通信安全认证后台……
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==============================
+       管理后台主体
+  =============================== -->
+  <div class="admin-app" id="adminApp">
+
+    <!-- 左侧导航 -->
+    <aside class="admin-sidebar">
+
+      <div class="admin-sidebar-top">
+
+        <a class="admin-brand" href="index.html">
+
+          <img
+            src="images/logo/ostar-logo-icon.png"
+            alt="奥斯达通信 Logo"
+          >
+
+          <div>
+            <strong>奥斯达通信</strong>
+            <span>ADMIN CENTER</span>
+          </div>
+
+        </a>
+
+        <div class="admin-environment">
+          <span></span>
+          管理系统运行正常
+        </div>
+
+      </div>
+
+
+      <nav class="admin-navigation">
+
+        <span class="admin-nav-title">
+          管理中心
+        </span>
+
+        <button
+          class="admin-nav-button active"
+          type="button"
+          data-admin-panel="dashboardPanel"
+          data-panel-title="控制台"
+        >
+          <span class="admin-nav-icon">⌂</span>
+
+          <span>控制台</span>
+        </button>
+
+
+        <button
+          class="admin-nav-button"
+          type="button"
+          data-admin-panel="newsPanel"
+          data-panel-title="新闻管理"
+        >
+          <span class="admin-nav-icon">▤</span>
+
+          <span>新闻管理</span>
+
+          <small id="sidebarNewsCount">0</small>
+        </button>
+
+
+        <button
+          class="admin-nav-button"
+          type="button"
+          data-admin-panel="createNewsPanel"
+          data-panel-title="新增新闻"
+        >
+          <span class="admin-nav-icon">＋</span>
+
+          <span>新增新闻</span>
+        </button>
+
+
+        <button
+          class="admin-nav-button"
+          type="button"
+          data-admin-panel="casesPanel"
+          data-panel-title="客户案例管理"
+        >
+          <span class="admin-nav-icon">◇</span>
+
+          <span>客户案例</span>
+        </button>
+
+
+        <button
+          class="admin-nav-button"
+          type="button"
+          data-admin-panel="partnersPanel"
+          data-panel-title="合作客户管理"
+        >
+          <span class="admin-nav-icon">◎</span>
+
+          <span>合作客户</span>
+        </button>
+
+
+        <button
+          class="admin-nav-button"
+          type="button"
+          data-admin-panel="messagesPanel"
+          data-panel-title="客户留言管理"
+        >
+          <span class="admin-nav-icon">✉</span>
+
+          <span>客户留言</span>
+
+          <small id="sidebarMessageCount">
+            0
+          </small>
+        </button>
+
+      </nav>
+
+
+      <div class="admin-sidebar-bottom">
+
+        <a
+          class="admin-site-link"
+          href="index.html"
+          target="_blank"
+          rel="noopener"
+        >
+          <span>↗</span>
+          打开公司网站
+        </a>
+
+        <button
+          class="admin-logout-button"
+          id="adminLogoutButton"
+          type="button"
+        >
+          <span>←</span>
+          退出管理员账号
+        </button>
+
+      </div>
+
+    </aside>
+
+
+    <!-- 右侧内容 -->
+    <main class="admin-main">
+
+      <!-- 顶部栏 -->
+      <header class="admin-header">
+
+        <div>
+
+          <span class="admin-header-eyebrow">
+            OSTAR ADMINISTRATION
+          </span>
+
+          <h1 id="adminPageTitle">
+            控制台
+          </h1>
+
+        </div>
+
+
+        <div class="admin-header-actions">
+
+          <div class="admin-current-date">
+
+            <span>今天</span>
+
+            <strong id="adminCurrentDate">
+              正在读取日期
+            </strong>
+
+          </div>
+
+
+          <div class="admin-user-menu">
+
+            <div class="admin-user-avatar" id="adminUserAvatar">
+              M
+            </div>
+
+            <div class="admin-user-info">
+
+              <strong id="adminDisplayName">
+                管理员
+              </strong>
+
+              <span id="adminEmail">
+                正在读取账号
+              </span>
+
+            </div>
+
+            <span class="admin-role-badge">
+              ADMIN
+            </span>
+
+          </div>
+
+        </div>
+
+      </header>
+
+
+      <div class="admin-content">
+
+        <!-- ==============================
+             控制台
+        =============================== -->
+<section
+  class="admin-panel active"
+  id="dashboardPanel"
+>
+
+  <!-- ==============================
+       控制台欢迎区域
+  =============================== -->
+  <div class="admin-welcome-card dashboard-welcome-card">
+
+    <div class="admin-welcome-content">
+
+      <span class="admin-section-eyebrow">
+        MANAGEMENT OVERVIEW
+      </span>
+
+      <h2>
+        欢迎回来，
+        <span id="adminWelcomeName">
+          miasol
+        </span>
+      </h2>
+
+      <p>
+        在这里查看新闻发布情况、客户留言状态和网站最新内容。
+      </p>
+
+
+      <div class="dashboard-welcome-actions">
+
+        <button
+          class="admin-primary-button"
+          type="button"
+          data-open-panel="createNewsPanel"
+        >
+          新增一篇新闻
+          <span>→</span>
+        </button>
+
+        <button
+          class="dashboard-secondary-button"
+          type="button"
+          data-open-panel="messagesPanel"
+        >
+          查看客户留言
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="dashboard-system-card">
+
+      <span class="dashboard-system-label">
+        SYSTEM STATUS
+      </span>
+
+      <div class="dashboard-system-status">
+
+        <i></i>
+
+        <div>
+          <strong>管理系统运行正常</strong>
+          <small>Supabase 数据服务已连接</small>
+        </div>
+
+      </div>
+
+      <div class="dashboard-system-information">
+
+        <div>
+          <span>管理员身份</span>
+          <strong>ADMIN</strong>
+        </div>
+
+        <div>
+          <span>数据更新时间</span>
+          <strong id="dashboardUpdatedTime">
+            正在读取……
+          </strong>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==============================
+       真实数据统计
+  =============================== -->
+  <div class="dashboard-stat-grid">
+
+    <!-- 新闻总数 -->
+    <article class="dashboard-stat-card">
+
+      <div class="dashboard-stat-icon">
+        ▤
+      </div>
+
+      <div class="dashboard-stat-content">
+
+        <span>新闻总数</span>
+
+        <strong id="dashboardTotalNewsCount">
+          —
+        </strong>
+
+        <small>
+          数据库中的全部新闻
+        </small>
+
+      </div>
+
+      <span class="dashboard-stat-number">
+        01
+      </span>
+
+    </article>
+
+
+    <!-- 已发布新闻 -->
+    <article class="dashboard-stat-card">
+
+      <div class="dashboard-stat-icon">
+        ↗
+      </div>
+
+      <div class="dashboard-stat-content">
+
+        <span>已发布新闻</span>
+
+        <strong id="dashboardPublishedNewsCount">
+          —
+        </strong>
+
+        <small>
+          前台可以正常查看
+        </small>
+
+      </div>
+
+      <span class="dashboard-stat-number">
+        02
+      </span>
+
+    </article>
+
+
+    <!-- 新闻草稿 -->
+    <article class="dashboard-stat-card">
+
+      <div class="dashboard-stat-icon">
+        ◫
+      </div>
+
+      <div class="dashboard-stat-content">
+
+        <span>新闻草稿</span>
+
+        <strong id="dashboardDraftNewsCount">
+          —
+        </strong>
+
+        <small>
+          尚未正式发布
+        </small>
+
+      </div>
+
+      <span class="dashboard-stat-number">
+        03
+      </span>
+
+    </article>
+
+
+    <!-- 新客户留言 -->
+    <article class="dashboard-stat-card">
+
+      <div class="dashboard-stat-icon">
+        ✉
+      </div>
+
+      <div class="dashboard-stat-content">
+
+        <span>新客户留言</span>
+
+        <strong id="dashboardNewMessageCount">
+          —
+        </strong>
+
+        <small>
+          全部留言
+          <b id="dashboardTotalMessageCount">
+            —
+          </b>
+          条
+        </small>
+
+      </div>
+
+      <span class="dashboard-stat-number">
+        04
+      </span>
+
+    </article>
+
+  </div>
+
+
+  <!-- ==============================
+       最近新闻与最近留言
+  =============================== -->
+  <div class="dashboard-content-grid">
+
+    <!-- 最近新闻 -->
+    <section class="dashboard-content-card">
+
+      <div class="dashboard-card-heading">
+
+        <div>
+
+          <span>LATEST NEWS</span>
+
+          <h3>最近新闻</h3>
+
+        </div>
+
+        <button
+          type="button"
+          data-open-panel="newsPanel"
+        >
+          查看全部
+          <span>→</span>
+        </button>
+
+      </div>
+
+
+      <div
+        class="dashboard-recent-list"
+        id="dashboardRecentNewsList"
+      >
+
+        <div class="dashboard-list-loading">
+          正在读取最近新闻……
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- 最近客户留言 -->
+    <section class="dashboard-content-card">
+
+      <div class="dashboard-card-heading">
+
+        <div>
+
+          <span>LATEST MESSAGES</span>
+
+          <h3>最近客户留言</h3>
+
+        </div>
+
+        <button
+          type="button"
+          data-open-panel="messagesPanel"
+        >
+          查看全部
+          <span>→</span>
+        </button>
+
+      </div>
+
+
+      <div
+        class="dashboard-recent-list"
+        id="dashboardRecentMessageList"
+      >
+
+        <div class="dashboard-list-loading">
+          正在读取最近留言……
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+
+  <!-- ==============================
+       快速操作
+  =============================== -->
+  <section class="dashboard-quick-section">
+
+    <div class="dashboard-section-heading">
+
+      <div>
+
+        <span>QUICK ACTIONS</span>
+
+        <h3>快速操作</h3>
+
+      </div>
+
+      <button
+        class="dashboard-refresh-button"
+        id="refreshDashboardButton"
+        type="button"
+      >
+        ↻ 刷新控制台
+      </button>
+
+    </div>
+
+
+    <div class="dashboard-quick-grid">
+
+      <button
+        class="dashboard-quick-card"
+        type="button"
+        data-open-panel="createNewsPanel"
+      >
+
+        <span class="dashboard-quick-icon">
+          ＋
+        </span>
+
+        <div>
+
+          <strong>新增新闻</strong>
+
+          <small>
+            创建新闻草稿或正式发布
+          </small>
+
+        </div>
+
+        <b>→</b>
+
+      </button>
+
+
+      <button
+        class="dashboard-quick-card"
+        type="button"
+        data-open-panel="newsPanel"
+      >
+
+        <span class="dashboard-quick-icon">
+          ▤
+        </span>
+
+        <div>
+
+          <strong>管理新闻</strong>
+
+          <small>
+            查看、编辑和删除新闻
+          </small>
+
+        </div>
+
+        <b>→</b>
+
+      </button>
+
+
+      <button
+        class="dashboard-quick-card"
+        type="button"
+        data-open-panel="messagesPanel"
+      >
+
+        <span class="dashboard-quick-icon">
+          ✉
+        </span>
+
+        <div>
+
+          <strong>处理客户留言</strong>
+
+          <small>
+            修改状态并记录管理员备注
+          </small>
+
+        </div>
+
+        <b>→</b>
+
+      </button>
+
+
+      <a
+        class="dashboard-quick-card"
+        href="index.html"
+        target="_blank"
+        rel="noopener"
+      >
+
+        <span class="dashboard-quick-icon">
+          ↗
+        </span>
+
+        <div>
+
+          <strong>打开公司网站</strong>
+
+          <small>
+            在新窗口检查前台页面
+          </small>
+
+        </div>
+
+        <b>→</b>
+
+      </a>
+
+    </div>
+
+  </section>
+
+</section>
+
+
+        <!-- ==============================
+             新闻管理
+        =============================== -->
+        <section
+          class="admin-panel"
+          id="newsPanel"
+        >
+
+          <div class="admin-panel-heading">
+
+            <div>
+              <span class="admin-section-eyebrow">
+                NEWS MANAGEMENT
+              </span>
+
+              <h2>新闻内容管理</h2>
+
+              <p>
+                管理公司新闻、行业新闻和媒体报道。
+              </p>
+            </div>
+
+            <button
+              class="admin-primary-button"
+              type="button"
+              data-open-panel="createNewsPanel"
+            >
+              新增新闻
+              <span>＋</span>
+            </button>
+
+          </div>
+
+
+          <div class="admin-category-grid">
+
+            <article>
+              <span>01</span>
+              <strong>公司新闻</strong>
+              <p>企业活动、公司发展和项目动态。</p>
+              <a href="news-company.html" target="_blank">
+                查看前台页面 →
+              </a>
+            </article>
+
+            <article>
+              <span>02</span>
+              <strong>行业新闻</strong>
+              <p>通信行业、数字化及技术发展资讯。</p>
+              <a href="news-industry.html" target="_blank">
+                查看前台页面 →
+              </a>
+            </article>
+
+            <article>
+              <span>03</span>
+              <strong>媒体报道</strong>
+              <p>媒体报道、品牌传播和企业观察。</p>
+              <a href="news-media.html" target="_blank">
+                查看前台页面 →
+              </a>
+            </article>
+
+          </div>
+
+          <!-- 新闻筛选工具栏 -->
+<div class="admin-news-toolbar">
+
+  <div class="admin-news-filters">
+
+    <button
+      class="news-filter-button active"
+      type="button"
+      data-news-filter="all"
+    >
+      全部新闻
+    </button>
+
+    <button
+      class="news-filter-button"
+      type="button"
+      data-news-filter="company"
+    >
+      公司新闻
+    </button>
+
+    <button
+      class="news-filter-button"
+      type="button"
+      data-news-filter="industry"
+    >
+      行业新闻
+    </button>
+
+    <button
+      class="news-filter-button"
+      type="button"
+      data-news-filter="media"
+    >
+      媒体报道
+    </button>
+
+    <button
+      class="news-filter-button"
+      type="button"
+      data-news-filter="draft"
+    >
+      草稿
+    </button>
+
+    <button
+      class="news-filter-button"
+      type="button"
+      data-news-filter="published"
+    >
+      已发布
+    </button>
+
+  </div>
+
+  <button
+    class="admin-refresh-button"
+    id="refreshNewsButton"
+    type="button"
+  >
+    ↻ 刷新列表
+  </button>
+
+</div>
+
+
+<!-- 新闻数据列表 -->
+<div
+  class="admin-news-list"
+  id="adminNewsList"
+>
+  <div class="admin-list-loading">
+    正在读取新闻数据……
+  </div>
+</div>
+
+        </section>
+
+
+        <!-- ==============================
+             新增新闻
+        =============================== -->
+        <section
+          class="admin-panel"
+          id="createNewsPanel"
+        >
+
+          <div class="admin-panel-heading">
+
+            <div>
+              <span class="admin-section-eyebrow">
+                CREATE ARTICLE
+              </span>
+
+              <h2>新增新闻</h2>
+
+              <p>
+                新闻编辑表单将在下一步连接数据库。
+              </p>
+            </div>
+
+          </div>
+
+
+          <form
+            class="admin-news-editor"
+            id="newsEditorForm"
+            novalidate
+            >
+            <!-- 编辑已有新闻时，保存新闻编号 -->
+             <input
+             id="editingNewsId"
+             type="hidden"
+             >
+             
+             <div class="news-editor-header">
+
+                <div>
+                    <span>NEWS EDITOR</span>
+
+                    <strong id="newsEditorHeading">
+                    创建一篇新新闻
+                    </strong>
+                </div>
+
+                <span class="editor-security-label">
+                管理员专用
+                </span>
+
+            </div>
+
+
+            <div class="news-editor-grid">
+
+                <!-- 新闻标题 -->
+                <label class="news-editor-field">
+
+                    <span>
+                        新闻标题
+                        <b>*</b>
+                    </span>
+
+                    <input
+                        id="newsTitle"
+                        type="text"
+                        maxlength="160"
+                        placeholder="请输入新闻标题"
+                        required
+                    >
+
+                </label>
+
+
+                <!-- 新闻分类 -->
+                <label class="news-editor-field">
+
+                    <span>
+                        新闻分类
+                        <b>*</b>
+                    </span>
+
+                    <select
+                        id="newsCategory"
+                        required
+                    >
+                        <option value="company">
+                            公司新闻
+                            </option>
+
+                        <option value="industry">
+                            行业新闻
+                        </option>
+
+                        <option value="media">
+                            媒体报道
+                        </option>
+                    </select>
+
+                </label>
+
+
+                <!-- 新闻地址 -->
+                <label class="news-editor-field">
+
+                    <span>
+                        新闻地址标识
+                    </span>
+
+                    <input
+                        id="newsSlug"
+                        type="text"
+                        maxlength="180"
+                        placeholder="可以留空，系统会自动生成"
+                    >
+
+                    <small>
+                        用于新闻详情页地址，不能和其他新闻重复。
+                    </small>
+
+                </label>
+
+
+                <!-- 封面图片 -->
+                <label class="news-editor-field">
+
+                    <span>
+                        封面图片网址
+                    </span>
+
+                    <input
+                        id="newsCoverImage"
+                        type="url"
+                        placeholder="https://example.com/news-cover.jpg"
+                    >
+
+                    <small>
+                        当前可以留空，后面再加入本地图片上传功能。
+                    </small>
+
+                </label>
+
+
+                <!-- 新闻摘要 -->
+                <label class="news-editor-field news-editor-full">
+
+                    <span>
+                        新闻摘要
+                        <b>*</b>
+                    </span>
+
+                    <textarea
+                        id="newsSummary"
+                        rows="4"
+                        maxlength="500"
+                        placeholder="请输入新闻摘要，建议100至200字"
+                        required
+                    ></textarea>
+
+                </label>
+
+
+                <!-- 新闻正文 -->
+                <label class="news-editor-field news-editor-full">
+
+                    <span>
+                        新闻正文
+                        <b>*</b>
+                    </span>
+
+                    <textarea
+                        id="newsContent"
+                        rows="15"
+                        placeholder="请输入完整新闻正文，不同段落之间可以空一行"
+                        required
+                    ></textarea>
+
+                </label>
+
+            </div>
+
+
+            <div class="news-editor-footer">
+
+                 <p
+                    class="news-editor-message"
+                    id="newsEditorMessage"
+                    aria-live="polite"
+                ></p>
+
+
+                <div class="news-editor-actions">
+
+                    <button
+                        class="admin-cancel-button"
+                        id="cancelEditButton"
+                        type="button"
+                        hidden
+                    >
+                        取消编辑
+                    </button>
+
+                    <button
+                        class="admin-draft-button news-save-button"
+                        type="submit"
+                        data-save-status="draft"
+                    >
+                        保存草稿
+                    </button>
+
+                    <button
+                        class="admin-publish-button news-save-button"
+                        type="submit"
+                        data-save-status="published"
+                    >
+                        正式发布
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </form>
+
+        </section>
+
+
+        <!-- ==============================
+             其他管理页面
+        =============================== -->
+        <section
+          class="admin-panel"
+          id="casesPanel"
+        >
+
+          <div class="admin-panel-heading">
+            <div>
+              <span class="admin-section-eyebrow">
+                CUSTOMER CASES
+              </span>
+
+              <h2>客户案例管理</h2>
+
+              <p>
+                后续将在这里新增、编辑和删除客户案例。
+              </p>
+            </div>
+          </div>
+
+          <div class="admin-empty-state">
+            <span>◇</span>
+            <h3>客户案例功能准备中</h3>
+            <p>完成新闻管理功能后继续建立。</p>
+          </div>
+
+        </section>
+
+
+        <section
+          class="admin-panel"
+          id="partnersPanel"
+        >
+
+          <div class="admin-panel-heading">
+            <div>
+              <span class="admin-section-eyebrow">
+                CUSTOMER LOGOS
+              </span>
+
+              <h2>合作客户管理</h2>
+
+              <p>
+                后续将在这里上传和管理合作客户 Logo。
+              </p>
+            </div>
+          </div>
+
+          <div class="admin-empty-state">
+            <span>◎</span>
+            <h3>合作客户功能准备中</h3>
+            <p>完成新闻管理功能后继续建立。</p>
+          </div>
+
+        </section>
+
+
+        <section
+          class="admin-panel"
+          id="messagesPanel"
+        >
+
+          <!-- 客户留言页面标题 -->
+           <div class="admin-panel-heading">
+
+            <div>
+              <span class="admin-section-eyebrow">
+                CUSTOMER MESSAGES
+              </span>
+              <h2>客户留言管理</h2>
+
+              <p>
+                查看网站访客提交的项目需求、商务合作和人才联系信息。
+              </p>
+            </div>
+
+
+            <button
+              class="admin-refresh-button"
+              id="refreshMessagesButton"
+              type="button"
+            >
+              ↻ 刷新留言
+            </button>
+          </div>
+
+
+          <!-- 留言数据概览 -->
+          <div class="message-summary-grid">
+
+            <article>
+
+              <span>01</span>
+
+              <div>
+                <small>全部留言</small>
+                <strong id="totalMessageCount">0</strong>
+              </div>
+            
+            </article>
+
+
+            <article>
+              
+              
+              <span>02</span>
+
+              <div>
+                <small>新留言</small>
+                <strong id="newMessageCount">0</strong>
+              </div>
+            
+            
+            </article>
+
+
+            <article>
+              <span>03</span>
+
+              <div>
+                <small>处理中</small>
+                <strong id="processingMessageCount">0</strong>
+              </div>
+            
+            
+            </article>
+
+
+            <article>
+
+              <span>04</span>
+
+              <div>
+                <small>已经完成</small>
+                <strong id="completedMessageCount">0</strong>
+              </div>
+
+            </article>
+          
+          </div>
+
+
+          <!-- 留言筛选工具栏 -->
+          <div class="admin-messages-toolbar">
+
+            <div class="admin-message-filters">
+
+              <button
+                class="message-filter-button active"
+                type="button"
+                data-message-filter="all"
+              >
+                全部留言
+              </button>
+
+              <button
+                class="message-filter-button"
+                type="button"
+                data-message-filter="new"
+              >
+                新留言
+              </button>
+
+              <button
+                class="message-filter-button"
+                type="button"
+                data-message-filter="read"
+              >
+                已查看
+              </button>
+
+              <button
+                class="message-filter-button"
+                type="button"
+                data-message-filter="contacted"
+              >
+                已联系
+              </button>
+
+              <button
+                class="message-filter-button"
+                type="button"
+                data-message-filter="completed"
+              >
+                已完成
+              </button>
+
+              <button
+                class="message-filter-button"
+                type="button"
+                data-message-filter="archived"
+              >
+                已归档
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- 左侧留言列表 + 右侧详情 -->
+          <div class="admin-messages-layout">
+
+            <!-- 留言列表 -->
+            <div
+              class="admin-messages-list"
+              id="adminMessagesList"
+            >
+
+              <div class="admin-list-loading">
+                正在读取客户留言……
+              </div>
+
+            </div>
+
+
+          <!-- 留言详情 -->
+            <aside
+              class="message-detail-panel"
+              id="messageDetailPanel"
+            >
+
+              <!-- 尚未选择留言 -->
+             <div
+                class="message-detail-empty"
+                id="messageDetailEmpty"
+              >
+
+                <span>✉</span>
+
+                <h3>请选择一条留言</h3>
+
+                <p>
+                  点击左侧留言后，可以查看联系方式、
+                  留言内容、处理状态和管理员备注。
+                </p>
+
+              </div>
+
+
+              <!-- 留言详情编辑表单 -->
+              <form
+                class="message-detail-form"
+                id="messageDetailForm"
+                hidden
+              >
+
+                <input
+                  id="activeMessageId"
+                  type="hidden"
+                >
+
+
+                <div class="message-detail-header">
+
+                <div>
+
+                  <span id="messageDetailService">
+                    项目咨询
+                </span>
+
+                <h3 id="messageDetailName">
+                    联系人姓名
+                </h3>
+
+            </div>
+
+            <span
+                class="message-detail-status"
+                id="messageDetailStatusBadge"
+            >
+              新留言
+            </span>
+          </div>
+
+
+          <!-- 客户基本资料 -->
+          <div class="message-contact-information">
+
+            <div>
+              <small>公司或机构</small>
+              <strong id="messageDetailCompany">—</strong>
+            </div>
+
+            <div>
+              <small>联系电话</small>
+              <strong id="messageDetailPhone">—</strong>
+            </div>
+
+            <div>
+              <small>电子邮箱</small>
+              <strong id="messageDetailEmail">—</strong>
+            </div>
+
+            <div>
+              <small>提交时间</small>
+              <strong id="messageDetailDate">—</strong>
+            </div>
+
+          </div>
+
+
+          <!-- 客户留言正文 -->
+          <div class="message-content-box">
+
+            <span>客户留言内容</span>
+
+            <p id="messageDetailContent">
+            —
+            </p>
+
+          </div>
+
+
+          <!-- 修改处理状态 -->
+          <label class="message-editor-field">
+
+            <span>处理状态</span>
+
+            <select id="messageStatusSelect">
+
+              <option value="new">
+                新留言
+              </option>
+
+              <option value="read">
+                已查看
+              </option>
+
+              <option value="contacted">
+                已联系
+              </option>
+
+              <option value="completed">
+                已完成
+              </option>
+
+              <option value="archived">
+                已归档
+              </option>
+
+            </select>
+
+          </label>
+
+
+          <!-- 管理员备注 -->
+          <label class="message-editor-field">
+
+            <span>管理员内部备注</span>
+
+            <textarea
+              id="messageAdminNote"
+              rows="6"
+              maxlength="2000"
+              placeholder="记录客户沟通情况、负责人或后续安排"
+            ></textarea>
+
+          </label>
+
+
+          <p
+            class="message-editor-feedback"
+            id="messageEditorFeedback"
+            aria-live="polite"
+          ></p>
+
+
+          <!-- 操作按钮 -->
+          <div class="message-detail-actions">
+
+            <button
+              class="message-delete-button"
+              id="deleteMessageButton"
+              type="button"
+            >
+              删除留言
+            </button>
+
+            <button
+              class="message-save-button"
+              id="saveMessageButton"
+              type="submit"
+            >
+              保存状态与备注
+              <span>→</span>
+            </button>
+
+          </div>
+
+        </form>
+
+      </aside>
+
+    </div>
+
+  </section>
+
+  </div>
+
+  </main>
+
+  </div>
+
+
+<!-- Supabase 脚本顺序不能改变 -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+
+<!-- 管理后台 -->
+<script src="js/admin.js"></script>
+<script src="js/news-admin.js"></script>
+<script src="js/messages-admin.js"></script>
+<script src="js/dashboard-admin.js"></script>
+
+</body>
+</html>
