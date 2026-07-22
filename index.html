@@ -16,6 +16,91 @@
 
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- 首页合作客户 Logo 专用样式 -->
+  <style>
+    .partners-logo-grid {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .partner-logo-card.partner-logo-image-card {
+      min-width: 0;
+      min-height: 138px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: inherit;
+      cursor: pointer;
+      text-decoration: none;
+      background: #ffffff;
+      transition:
+        transform 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease;
+    }
+
+    .partner-logo-card.partner-logo-image-card:hover {
+      transform: translateY(-4px);
+      border-color: #9fc4eb;
+      box-shadow:
+        0 18px 40px
+        rgba(37, 76, 122, 0.11);
+    }
+
+    .partner-logo-card.partner-logo-image-card:focus-visible {
+      outline: 3px solid #1769f3;
+      outline-offset: 4px;
+    }
+
+    .partner-logo-image-card img {
+      width: 100%;
+      max-width: 170px;
+      height: 72px;
+      display: block;
+      object-fit: contain;
+      pointer-events: none;
+      filter: none;
+      opacity: 1;
+      transition:
+        transform 0.22s ease;
+    }
+
+    .partner-logo-image-card:hover img {
+      transform: scale(1.04);
+    }
+
+    @media (max-width: 1100px) {
+      .partners-logo-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 820px) {
+      .partners-logo-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .partners-logo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 11px;
+      }
+
+      .partner-logo-card.partner-logo-image-card {
+        min-height: 108px;
+        padding: 17px;
+      }
+
+      .partner-logo-image-card img {
+        height: 56px;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
@@ -757,63 +842,280 @@
         TRUSTED PARTNERS
       </span>
 
-      <h2>与客户共同构建长期价值</h2>
+      <h2>合作客户与生态伙伴</h2>
 
       <p>
-        我们持续服务不同规模和不同行业的企业客户，
-        通过专业通信技术与稳定服务建立长期合作关系。
+        奥斯达通信与通信运营商、网络设备厂商、
+        企业软件及人工智能领域的合作伙伴保持业务协作，
+        共同支持企业客户的通信网络和数字化建设。
       </p>
 
     </div>
 
-    <!--
-      当前先使用客户 Logo 占位区域。
-      后续放入真实 Logo 图片后，再替换成 img 标签。
-    -->
+
     <div class="partners-logo-grid">
 
-      <div class="partner-logo-card">
-        <span class="partner-logo-symbol">01</span>
-        <strong>合作客户</strong>
-        <small>ENTERPRISE PARTNER</small>
-      </div>
+      <!-- 中国电信 -->
+      <a
+        class="partner-logo-card partner-logo-image-card"
+        href="https://www.baidu.com/s?wd=中国电信+百度百科"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="在百度查看中国电信介绍"
+        title="查看中国电信介绍"
+      >
+        <img
+          src="images/customers/ChinaTelecom.png"
+          alt="中国电信"
+          loading="lazy"
+        >
+      </a>
 
-      <div class="partner-logo-card">
-        <span class="partner-logo-symbol">02</span>
-        <strong>合作客户</strong>
-        <small>ENTERPRISE PARTNER</small>
-      </div>
 
-      <div class="partner-logo-card">
-        <span class="partner-logo-symbol">03</span>
-        <strong>合作客户</strong>
-        <small>ENTERPRISE PARTNER</small>
-      </div>
+      <!-- 中国联通 -->
+      <a
+        class="partner-logo-card partner-logo-image-card"
+        href="https://www.baidu.com/s?wd=中国联通+百度百科"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="在百度查看中国联通介绍"
+        title="查看中国联通介绍"
+      >
+        <img
+          src="images/customers/ChinaUnicom.png"
+          alt="中国联通"
+          loading="lazy"
+        >
+      </a>
 
-      <div class="partner-logo-card">
-        <span class="partner-logo-symbol">04</span>
-        <strong>合作客户</strong>
-        <small>ENTERPRISE PARTNER</small>
-      </div>
 
-      <div class="partner-logo-card">
-        <span class="partner-logo-symbol">05</span>
-        <strong>合作客户</strong>
-        <small>ENTERPRISE PARTNER</small>
-      </div>
+      <!-- 中国移动 -->
+      <a
+        class="partner-logo-card partner-logo-image-card"
+        href="https://www.baidu.com/s?wd=中国移动+百度百科"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="在百度查看中国移动介绍"
+        title="查看中国移动介绍"
+      >
+        <img
+          src="images/customers/ChinaMobile.png"
+          alt="中国移动"
+          loading="lazy"
+        >
+      </a>
 
-      <div class="partner-logo-card">
-        <span class="partner-logo-symbol">06</span>
-        <strong>合作客户</strong>
-        <small>ENTERPRISE PARTNER</small>
-      </div>
+
+      <!-- 中国铁通 -->
+      <a
+        class="partner-logo-card partner-logo-image-card"
+        href="https://www.baidu.com/s?wd=中国铁通集团有限公司+百度百科"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="在百度查看中国铁通介绍"
+        title="查看中国铁通介绍"
+      >
+        <img
+          src="images/customers/CHINA-TIETONG.png"
+          alt="中国铁通"
+          loading="lazy"
+        >
+      </a>
+
+
+      <!-- 华为 -->
+      <a
+        class="partner-logo-card partner-logo-image-card"
+        href="https://www.baidu.com/s?wd=华为技术有限公司+百度百科"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="在百度查看华为介绍"
+        title="查看华为介绍"
+      >
+        <img
+          src="images/customers/HUAWEI.png"
+          alt="华为"
+          loading="lazy"
+        >
+      </a>
+
+
+      <!-- 新华三 -->
+      <a
+        class="partner-logo-card partner-logo-image-card"
+        href="https://www.baidu.com/s?wd=新华三集团+百度百科"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="在百度查看新华三介绍"
+        title="查看新华三介绍"
+      >
+        <img
+          src="images/customers/H3C.png"
+          alt="新华三 H3C"
+          loading="lazy"
+        >
+      </a>
+
+
+      <!-- 中兴通讯 -->
+      <a
+        class="partner-logo-card partner-logo-image-card"
+        href="https://www.baidu.com/s?wd=中兴通讯股份有限公司+百度百科"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="在百度查看中兴通讯介绍"
+        title="查看中兴通讯介绍"
+      >
+        <img
+          src="images/customers/ZTE.png"
+          alt="中兴通讯 ZTE"
+          loading="lazy"
+        >
+      </a>
+
+
+      <!-- 松下 -->
+      <a
+        class="partner-logo-card partner-logo-image-card"
+        href="https://www.baidu.com/s?wd=松下电器+百度百科"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="在百度查看松下介绍"
+        title="查看松下介绍"
+      >
+        <img
+          src="images/customers/Panasonic.png"
+          alt="松下 Panasonic"
+          loading="lazy"
+        >
+      </a>
+
+
+      <!-- 金蝶 -->
+      <a
+        class="partner-logo-card partner-logo-image-card"
+        href="https://www.baidu.com/s?wd=金蝶国际软件集团+百度百科"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="在百度查看金蝶介绍"
+        title="查看金蝶介绍"
+      >
+        <img
+          src="images/customers/Kingdee.png"
+          alt="金蝶"
+          loading="lazy"
+        >
+      </a>
+
+
+      <!-- 联想 -->
+      <a
+        class="partner-logo-card partner-logo-image-card"
+        href="https://www.baidu.com/s?wd=联想集团+百度百科"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="在百度查看联想介绍"
+        title="查看联想介绍"
+      >
+        <img
+          src="images/customers/Lenovo.png"
+          alt="联想"
+          loading="lazy"
+        >
+      </a>
+
+
+      <!-- 旷视 -->
+      <a
+        class="partner-logo-card partner-logo-image-card"
+        href="https://www.baidu.com/s?wd=旷视科技+百度百科"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="在百度查看旷视科技介绍"
+        title="查看旷视科技介绍"
+      >
+        <img
+          src="images/customers/MEGVII.jpg"
+          alt="旷视科技 MEGVII"
+          loading="lazy"
+        >
+      </a>
+
+
+      <!-- Panabit -->
+      <a
+        class="partner-logo-card partner-logo-image-card"
+        href="https://www.baidu.com/s?wd=Panabit派网+百度百科"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="在百度查看Panabit介绍"
+        title="查看Panabit介绍"
+      >
+        <img
+          src="images/customers/panabit.png"
+          alt="派网 Panabit"
+          loading="lazy"
+        >
+      </a>
+
+
+      <!-- 锐捷 -->
+      <a
+        class="partner-logo-card partner-logo-image-card"
+        href="https://www.baidu.com/s?wd=锐捷网络+百度百科"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="在百度查看锐捷网络介绍"
+        title="查看锐捷网络介绍"
+      >
+        <img
+          src="images/customers/Rujie.png"
+          alt="锐捷网络"
+          loading="lazy"
+        >
+      </a>
+
+
+      <!-- 商汤 -->
+      <a
+        class="partner-logo-card partner-logo-image-card"
+        href="https://www.baidu.com/s?wd=商汤科技+百度百科"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="在百度查看商汤科技介绍"
+        title="查看商汤科技介绍"
+      >
+        <img
+          src="images/customers/sensetime.png"
+          alt="商汤科技 SenseTime"
+          loading="lazy"
+        >
+      </a>
+
+
+      <!-- TCL -->
+      <a
+        class="partner-logo-card partner-logo-image-card"
+        href="https://www.baidu.com/s?wd=TCL科技集团+百度百科"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="在百度查看TCL介绍"
+        title="查看TCL介绍"
+      >
+        <img
+          src="images/customers/TCL.png"
+          alt="TCL"
+          loading="lazy"
+        >
+      </a>
 
     </div>
+
 
     <div class="partners-bottom">
 
       <span>
-        更多客户案例及解决方案
+        查看更多客户服务场景与项目解决方案
       </span>
 
       <a href="cases.html">
@@ -943,13 +1245,24 @@
       <h3>联系我们</h3>
 
       <p>
-        欢迎提交您的项目需求，
-        我们将安排专业顾问与您联系。
+        深圳市南山区西丽街道曙光社区中山园路
+        TCL国际E城D1栋AB电梯603
       </p>
 
-      <a href="contact.html">
-        提交项目需求
-        <span>→</span>
+      <a href="tel:13823162880">
+        电话：13823162880
+      </a>
+
+      <a href="mailto:sherry9988@139.com">
+        邮箱：sherry9988@139.com
+      </a>
+
+      <a
+        href="https://www.ostel.cn"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        官网：www.ostel.cn
       </a>
 
     </div>
@@ -980,11 +1293,10 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/supabase-config.js"></script>
 
-<!-- 管理后台 -->
-<script src="js/admin.js"></script>
-<script src="js/news-admin.js"></script>
-<script src="js/messages-admin.js"></script>
-<script src="js/dashboard-admin.js"></script>
+<!-- 首页功能 -->
+<script src="js/main.js"></script>
+<script src="js/home-news.js"></script>
+<script src="js/search.js"></script>
 
 </body>
 </html>
