@@ -18,6 +18,343 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/about.css">
   <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- 专利证书轮播专用样式 -->
+  <style>
+    .patent-showcase-section {
+      margin-top: 38px;
+      padding-top: 34px;
+      border-top: 1px solid #e2eaf2;
+    }
+
+    .patent-showcase-heading {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 36px;
+    }
+
+    .patent-showcase-heading div > span {
+      color: #1769f3;
+      font-size: 8px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .patent-showcase-heading h4 {
+      margin: 12px 0 0;
+      color: #071a36;
+      font-size: 28px;
+      line-height: 1.35;
+    }
+
+    .patent-showcase-heading > p {
+      max-width: 560px;
+      margin: 0;
+      color: #8293a7;
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    .patent-showcase-grid {
+      margin-top: 25px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .patent-certificate-card {
+      min-width: 0;
+      overflow: hidden;
+      background: #ffffff;
+      border: 1px solid #dce7f2;
+      border-radius: 20px;
+      box-shadow:
+        0 14px 36px
+        rgba(37, 76, 122, 0.065);
+      transition:
+        transform 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease;
+    }
+
+    .patent-certificate-card:hover {
+      transform: translateY(-4px);
+      border-color: #bdd5ec;
+      box-shadow:
+        0 20px 44px
+        rgba(37, 76, 122, 0.1);
+    }
+
+    .patent-slider-shell {
+      position: relative;
+      padding: 15px;
+      background:
+        linear-gradient(
+          145deg,
+          #f4f8fc,
+          #edf4fb
+        );
+      border-bottom: 1px solid #e0e9f2;
+    }
+
+    .patent-slider-viewport {
+      width: 100%;
+      aspect-ratio: 7 / 9.9;
+      overflow: hidden;
+      position: relative;
+      background: #fffdf7;
+      border: 1px solid #dbe5ee;
+      border-radius: 13px;
+      box-shadow:
+        0 9px 24px
+        rgba(37, 76, 122, 0.08);
+    }
+
+    .patent-slider-track {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      will-change: transform;
+      transform: translate3d(0, 0, 0);
+      transition:
+        transform 0.72s
+        cubic-bezier(0.22, 0.78, 0.25, 1);
+    }
+
+    .patent-slide {
+      min-width: 100%;
+      height: 100%;
+      display: block;
+      overflow: hidden;
+      background: #fffdf7;
+    }
+
+    .patent-slide img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      object-position: center;
+      background: #fffdf7;
+    }
+
+    .patent-slide:focus-visible {
+      outline: 3px solid #1769f3;
+      outline-offset: -5px;
+    }
+
+    .patent-page-badge {
+      position: absolute;
+      top: 27px;
+      right: 27px;
+      z-index: 3;
+      min-height: 31px;
+      padding: 0 11px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      background: rgba(7, 26, 54, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      border-radius: 999px;
+      font-size: 8px;
+      font-weight: 900;
+      backdrop-filter: blur(8px);
+    }
+
+    .patent-slider-controls {
+      margin-top: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .patent-slider-arrow {
+      width: 35px;
+      height: 35px;
+      display: grid;
+      place-items: center;
+      color: #1769f3;
+      cursor: pointer;
+      background: #ffffff;
+      border: 1px solid #ccdeee;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 900;
+      transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .patent-slider-arrow:hover {
+      color: #ffffff;
+      background: #1769f3;
+      border-color: #1769f3;
+    }
+
+    .patent-slider-arrow:focus-visible {
+      outline: 3px solid rgba(23, 105, 243, 0.25);
+      outline-offset: 3px;
+    }
+
+    .patent-slider-dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+    }
+
+    .patent-slider-dot {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      cursor: pointer;
+      background: #c4d3e2;
+      border: 0;
+      border-radius: 999px;
+      transition:
+        width 0.22s ease,
+        background 0.22s ease;
+    }
+
+    .patent-slider-dot.active {
+      width: 25px;
+      background: #1769f3;
+    }
+
+    .patent-slider-dot:focus-visible {
+      outline: 3px solid rgba(23, 105, 243, 0.22);
+      outline-offset: 3px;
+    }
+
+    .patent-card-content {
+      padding: 25px;
+    }
+
+    .patent-card-labels {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .patent-card-labels > span {
+      color: #1769f3;
+      font-size: 8px;
+      font-weight: 900;
+      letter-spacing: 1.4px;
+    }
+
+    .patent-card-labels > small {
+      padding: 6px 9px;
+      color: #60758b;
+      background: #f1f6fb;
+      border-radius: 999px;
+      font-size: 8px;
+      font-weight: 800;
+    }
+
+    .patent-card-content h5 {
+      margin: 14px 0 0;
+      color: #071a36;
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .patent-card-content p {
+      margin: 12px 0 0;
+      color: #76889c;
+      font-size: 10px;
+      line-height: 1.8;
+    }
+
+    .patent-card-meta {
+      margin-top: 20px;
+      padding-top: 17px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 11px;
+      border-top: 1px solid #e3ebf3;
+    }
+
+    .patent-card-meta div {
+      min-width: 0;
+      padding: 12px;
+      background: #f7faff;
+      border-radius: 11px;
+    }
+
+    .patent-card-meta span {
+      color: #91a0b0;
+      font-size: 7px;
+    }
+
+    .patent-card-meta strong {
+      margin-top: 6px;
+      display: block;
+      overflow: hidden;
+      color: #25405f;
+      font-size: 9px;
+      line-height: 1.5;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .patent-card-tip {
+      margin-top: 17px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      color: #8a9aac;
+      font-size: 8px;
+      line-height: 1.6;
+    }
+
+    .patent-card-tip b {
+      color: #1769f3;
+      font-weight: 900;
+    }
+
+    @media (max-width: 1120px) {
+      .patent-showcase-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .patent-showcase-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .patent-showcase-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .patent-slider-shell {
+        padding: 12px;
+      }
+
+      .patent-card-content {
+        padding: 22px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .patent-slider-track {
+        transition: none;
+      }
+
+      .patent-certificate-card {
+        transition: none;
+      }
+    }
+  </style>
+
 </head>
 
 <body class="about-page">
@@ -816,7 +1153,7 @@
       </div>
 
       <p>
-        展示公司已提供的荣誉证书、登记证书及增值电信业务许可文件。
+        展示公司已提供的荣誉证书、专利证书、登记证书及增值电信业务许可文件。
       </p>
 
     </div>
@@ -824,6 +1161,92 @@
 
     <!-- 荣誉证书图片 -->
     <div class="honor-certificate-grid">
+
+
+      <!-- 优秀合作企业证书 -->
+      <article class="honor-certificate-card">
+
+        <a
+          class="honor-certificate-image"
+          href="images/honors/ostar-excellent-partner-certificate.png"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="查看优秀合作企业证书原图"
+        >
+          <img
+            src="images/honors/ostar-excellent-partner-certificate.png"
+            alt="深圳市奥斯达通信有限公司优秀合作企业证书"
+            loading="lazy"
+          >
+        </a>
+
+        <div class="honor-certificate-content">
+
+          <span>EXCELLENT PARTNER</span>
+
+          <h5>优秀合作企业证书</h5>
+
+          <p>
+            由深圳市南山区计算机协会颁发，
+            认定深圳市奥斯达通信有限公司为优秀合作企业。
+            证书有效期为2025年3月1日至2028年2月29日。
+          </p>
+
+          <a
+            href="images/honors/ostar-excellent-partner-certificate.png"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            查看证书
+            <b>→</b>
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- 高新技术企业证书 -->
+      <article class="honor-certificate-card">
+
+        <a
+          class="honor-certificate-image"
+          href="images/honors/ostar-high-tech-enterprise-certificate.jpg"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="查看高新技术企业证书原图"
+        >
+          <img
+            src="images/honors/ostar-high-tech-enterprise-certificate.jpg"
+            alt="深圳市奥斯达通信有限公司高新技术企业证书"
+            loading="lazy"
+          >
+        </a>
+
+        <div class="honor-certificate-content">
+
+          <span>HIGH-TECH ENTERPRISE</span>
+
+          <h5>高新技术企业证书</h5>
+
+          <p>
+            深圳市奥斯达通信有限公司获得的高新技术企业认定证书，
+            证书编号为GR202344204744。
+          </p>
+
+          <a
+            href="images/honors/ostar-high-tech-enterprise-certificate.jpg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            查看证书
+            <b>→</b>
+          </a>
+
+        </div>
+
+      </article>
+
 
       <article class="honor-certificate-card">
 
@@ -947,7 +1370,474 @@
     </div>
 
 
-    <!-- 增值电信业务许可证 -->
+
+    <!-- ==============================
+         专利证书：每项专利独立一格
+         每5秒自动切换第1页和第2页
+    =============================== -->
+    <section
+      class="patent-showcase-section"
+      id="patentCertificates"
+    >
+
+      <div class="patent-showcase-heading">
+
+        <div>
+          <span>PATENT CERTIFICATES</span>
+          <h4>专利证书</h4>
+        </div>
+
+        <p>
+          每项专利证书独立展示为一个卡片。
+          证书第1页与第2页将在同一卡片中每5秒自动滑动切换，
+          也可以使用左右按钮手动查看。
+        </p>
+
+      </div>
+
+
+      <div class="patent-showcase-grid">
+
+        <!-- 专利 1：一种5G基站供电设备箱 -->
+        <article
+          class="patent-certificate-card"
+          data-patent-slider
+          data-interval="5000"
+        >
+
+          <div class="patent-slider-shell">
+
+            <div
+              class="patent-page-badge"
+              aria-live="polite"
+            >
+              第
+              <span data-patent-current>1</span>
+              页 / 共2页
+            </div>
+
+            <div class="patent-slider-viewport">
+
+              <div
+                class="patent-slider-track"
+                data-patent-track
+              >
+
+                <a
+                  class="patent-slide"
+                  href="images/honors/patent-5g-power-box-page-1.jpg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="查看一种5G基站供电设备箱发明专利证书第1页"
+                >
+                  <img
+                    src="images/honors/patent-5g-power-box-page-1.jpg"
+                    alt="一种5G基站供电设备箱发明专利证书第1页"
+                    loading="lazy"
+                  >
+                </a>
+
+                <a
+                  class="patent-slide"
+                  href="images/honors/patent-5g-power-box-page-2.jpg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="查看一种5G基站供电设备箱发明专利证书第2页"
+                >
+                  <img
+                    src="images/honors/patent-5g-power-box-page-2.jpg"
+                    alt="一种5G基站供电设备箱发明专利证书第2页"
+                    loading="lazy"
+                  >
+                </a>
+
+              </div>
+
+            </div>
+
+
+            <div class="patent-slider-controls">
+
+              <button
+                class="patent-slider-arrow"
+                type="button"
+                data-patent-prev
+                aria-label="查看上一页"
+              >
+                ‹
+              </button>
+
+              <div
+                class="patent-slider-dots"
+                role="tablist"
+                aria-label="选择专利证书页码"
+              >
+                <button
+                  class="patent-slider-dot active"
+                  type="button"
+                  data-patent-dot="0"
+                  aria-label="查看第1页"
+                  aria-selected="true"
+                ></button>
+
+                <button
+                  class="patent-slider-dot"
+                  type="button"
+                  data-patent-dot="1"
+                  aria-label="查看第2页"
+                  aria-selected="false"
+                ></button>
+              </div>
+
+              <button
+                class="patent-slider-arrow"
+                type="button"
+                data-patent-next
+                aria-label="查看下一页"
+              >
+                ›
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <div class="patent-card-content">
+
+            <div class="patent-card-labels">
+              <span>INVENTION PATENT</span>
+              <small>发明专利</small>
+            </div>
+
+            <h5>
+              一种5G基站供电设备箱
+            </h5>
+
+            <p>
+              国家知识产权局颁发的发明专利证书，
+              专利权人为深圳市奥斯达通信有限公司。
+            </p>
+
+            <div class="patent-card-meta">
+
+              <div>
+                <span>专利号</span>
+                <strong>ZL 2021 1 0185609.0</strong>
+              </div>
+
+              <div>
+                <span>授权公告日</span>
+                <strong>2023年7月14日</strong>
+              </div>
+
+            </div>
+
+            <div class="patent-card-tip">
+              <span>图片每5秒自动切换</span>
+              <b>点击图片查看大图</b>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- 专利 2：一种基于通信技术用的数据传输终端 -->
+        <article
+          class="patent-certificate-card"
+          data-patent-slider
+          data-interval="5000"
+        >
+
+          <div class="patent-slider-shell">
+
+            <div
+              class="patent-page-badge"
+              aria-live="polite"
+            >
+              第
+              <span data-patent-current>1</span>
+              页 / 共2页
+            </div>
+
+            <div class="patent-slider-viewport">
+
+              <div
+                class="patent-slider-track"
+                data-patent-track
+              >
+
+                <a
+                  class="patent-slide"
+                  href="images/honors/patent-data-terminal-page-1.jpg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="查看一种基于通信技术用的数据传输终端实用新型专利证书第1页"
+                >
+                  <img
+                    src="images/honors/patent-data-terminal-page-1.jpg"
+                    alt="一种基于通信技术用的数据传输终端实用新型专利证书第1页"
+                    loading="lazy"
+                  >
+                </a>
+
+                <a
+                  class="patent-slide"
+                  href="images/honors/patent-data-terminal-page-2.jpg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="查看一种基于通信技术用的数据传输终端实用新型专利证书第2页"
+                >
+                  <img
+                    src="images/honors/patent-data-terminal-page-2.jpg"
+                    alt="一种基于通信技术用的数据传输终端实用新型专利证书第2页"
+                    loading="lazy"
+                  >
+                </a>
+
+              </div>
+
+            </div>
+
+
+            <div class="patent-slider-controls">
+
+              <button
+                class="patent-slider-arrow"
+                type="button"
+                data-patent-prev
+                aria-label="查看上一页"
+              >
+                ‹
+              </button>
+
+              <div
+                class="patent-slider-dots"
+                role="tablist"
+                aria-label="选择专利证书页码"
+              >
+                <button
+                  class="patent-slider-dot active"
+                  type="button"
+                  data-patent-dot="0"
+                  aria-label="查看第1页"
+                  aria-selected="true"
+                ></button>
+
+                <button
+                  class="patent-slider-dot"
+                  type="button"
+                  data-patent-dot="1"
+                  aria-label="查看第2页"
+                  aria-selected="false"
+                ></button>
+              </div>
+
+              <button
+                class="patent-slider-arrow"
+                type="button"
+                data-patent-next
+                aria-label="查看下一页"
+              >
+                ›
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <div class="patent-card-content">
+
+            <div class="patent-card-labels">
+              <span>UTILITY MODEL PATENT</span>
+              <small>实用新型专利</small>
+            </div>
+
+            <h5>
+              一种基于通信技术用的数据传输终端
+            </h5>
+
+            <p>
+              国家知识产权局颁发的实用新型专利证书，
+              专利权人为深圳市奥斯达通信有限公司。
+            </p>
+
+            <div class="patent-card-meta">
+
+              <div>
+                <span>专利号</span>
+                <strong>ZL 2021 2 1403507.3</strong>
+              </div>
+
+              <div>
+                <span>证书页数</span>
+                <strong>共2页</strong>
+              </div>
+
+            </div>
+
+            <div class="patent-card-tip">
+              <span>图片每5秒自动切换</span>
+              <b>点击图片查看大图</b>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- 专利 3：一种区块链电力互联网用服务器的放置装置 -->
+        <article
+          class="patent-certificate-card"
+          data-patent-slider
+          data-interval="5000"
+        >
+
+          <div class="patent-slider-shell">
+
+            <div
+              class="patent-page-badge"
+              aria-live="polite"
+            >
+              第
+              <span data-patent-current>1</span>
+              页 / 共2页
+            </div>
+
+            <div class="patent-slider-viewport">
+
+              <div
+                class="patent-slider-track"
+                data-patent-track
+              >
+
+                <a
+                  class="patent-slide"
+                  href="images/honors/patent-blockchain-server-holder-page-1.jpg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="查看一种区块链电力互联网用服务器的放置装置实用新型专利证书第1页"
+                >
+                  <img
+                    src="images/honors/patent-blockchain-server-holder-page-1.jpg"
+                    alt="一种区块链电力互联网用服务器的放置装置实用新型专利证书第1页"
+                    loading="lazy"
+                  >
+                </a>
+
+                <a
+                  class="patent-slide"
+                  href="images/honors/patent-blockchain-server-holder-page-2.jpg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="查看一种区块链电力互联网用服务器的放置装置实用新型专利证书第2页"
+                >
+                  <img
+                    src="images/honors/patent-blockchain-server-holder-page-2.jpg"
+                    alt="一种区块链电力互联网用服务器的放置装置实用新型专利证书第2页"
+                    loading="lazy"
+                  >
+                </a>
+
+              </div>
+
+            </div>
+
+
+            <div class="patent-slider-controls">
+
+              <button
+                class="patent-slider-arrow"
+                type="button"
+                data-patent-prev
+                aria-label="查看上一页"
+              >
+                ‹
+              </button>
+
+              <div
+                class="patent-slider-dots"
+                role="tablist"
+                aria-label="选择专利证书页码"
+              >
+                <button
+                  class="patent-slider-dot active"
+                  type="button"
+                  data-patent-dot="0"
+                  aria-label="查看第1页"
+                  aria-selected="true"
+                ></button>
+
+                <button
+                  class="patent-slider-dot"
+                  type="button"
+                  data-patent-dot="1"
+                  aria-label="查看第2页"
+                  aria-selected="false"
+                ></button>
+              </div>
+
+              <button
+                class="patent-slider-arrow"
+                type="button"
+                data-patent-next
+                aria-label="查看下一页"
+              >
+                ›
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <div class="patent-card-content">
+
+            <div class="patent-card-labels">
+              <span>UTILITY MODEL PATENT</span>
+              <small>实用新型专利</small>
+            </div>
+
+            <h5>
+              一种区块链电力互联网用服务器的放置装置
+            </h5>
+
+            <p>
+              国家知识产权局颁发的实用新型专利证书，
+              专利权人为深圳市奥斯达通信有限公司。
+            </p>
+
+            <div class="patent-card-meta">
+
+              <div>
+                <span>专利号</span>
+                <strong>ZL 2021 2 1403509.2</strong>
+              </div>
+
+              <div>
+                <span>证书页数</span>
+                <strong>共2页</strong>
+              </div>
+
+            </div>
+
+            <div class="patent-card-tip">
+              <span>图片每5秒自动切换</span>
+              <b>点击图片查看大图</b>
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+        <!-- 增值电信业务许可证 -->
     <div class="honor-license-grid">
 
       <article class="honor-license-card">
@@ -1798,6 +2688,328 @@
   <script src="js/main.js"></script>
   <script src="js/about.js"></script>
   <script src="js/search.js"></script>
+
+
+  <!-- 专利证书两页轮播：每5秒自动滑动 -->
+  <script>
+    "use strict";
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => {
+        const sliders =
+          Array.from(
+            document.querySelectorAll(
+              "[data-patent-slider]"
+            )
+          );
+
+        const reduceMotion =
+          window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+          ).matches;
+
+        sliders.forEach(
+          (slider) => {
+            const track =
+              slider.querySelector(
+                "[data-patent-track]"
+              );
+
+            const slides =
+              Array.from(
+                slider.querySelectorAll(
+                  ".patent-slide"
+                )
+              );
+
+            const dots =
+              Array.from(
+                slider.querySelectorAll(
+                  "[data-patent-dot]"
+                )
+              );
+
+            const previousButton =
+              slider.querySelector(
+                "[data-patent-prev]"
+              );
+
+            const nextButton =
+              slider.querySelector(
+                "[data-patent-next]"
+              );
+
+            const currentPage =
+              slider.querySelector(
+                "[data-patent-current]"
+              );
+
+            const interval =
+              Number(
+                slider.dataset.interval
+              ) || 5000;
+
+            let currentIndex = 0;
+            let timer = null;
+            let isVisible = false;
+            let isPaused = false;
+
+
+            if (
+              !track ||
+              slides.length < 2
+            ) {
+              return;
+            }
+
+
+            function showSlide(index) {
+              currentIndex =
+                (
+                  index +
+                  slides.length
+                ) %
+                slides.length;
+
+              track.style.transform =
+                `translate3d(-${currentIndex * 100}%, 0, 0)`;
+
+              slides.forEach(
+                (slide, slideIndex) => {
+                  slide.setAttribute(
+                    "aria-hidden",
+                    String(
+                      slideIndex !==
+                      currentIndex
+                    )
+                  );
+
+                  slide.tabIndex =
+                    slideIndex ===
+                    currentIndex
+                      ? 0
+                      : -1;
+                }
+              );
+
+              dots.forEach(
+                (dot, dotIndex) => {
+                  const isActive =
+                    dotIndex ===
+                    currentIndex;
+
+                  dot.classList.toggle(
+                    "active",
+                    isActive
+                  );
+
+                  dot.setAttribute(
+                    "aria-selected",
+                    String(isActive)
+                  );
+                }
+              );
+
+              if (currentPage) {
+                currentPage.textContent =
+                  String(
+                    currentIndex + 1
+                  );
+              }
+            }
+
+
+            function stopTimer() {
+              if (timer) {
+                window.clearInterval(
+                  timer
+                );
+
+                timer = null;
+              }
+            }
+
+
+            function startTimer() {
+              stopTimer();
+
+              if (
+                reduceMotion ||
+                !isVisible ||
+                isPaused ||
+                document.hidden
+              ) {
+                return;
+              }
+
+              timer =
+                window.setInterval(
+                  () => {
+                    showSlide(
+                      currentIndex + 1
+                    );
+                  },
+                  interval
+                );
+            }
+
+
+            function moveManually(
+              nextIndex
+            ) {
+              showSlide(nextIndex);
+              startTimer();
+            }
+
+
+            previousButton
+              ?.addEventListener(
+                "click",
+                () => {
+                  moveManually(
+                    currentIndex - 1
+                  );
+                }
+              );
+
+
+            nextButton
+              ?.addEventListener(
+                "click",
+                () => {
+                  moveManually(
+                    currentIndex + 1
+                  );
+                }
+              );
+
+
+            dots.forEach(
+              (dot) => {
+                dot.addEventListener(
+                  "click",
+                  () => {
+                    moveManually(
+                      Number(
+                        dot.dataset
+                          .patentDot
+                      )
+                    );
+                  }
+                );
+              }
+            );
+
+
+            slider.addEventListener(
+              "mouseenter",
+              () => {
+                isPaused = true;
+                stopTimer();
+              }
+            );
+
+
+            slider.addEventListener(
+              "mouseleave",
+              () => {
+                isPaused = false;
+                startTimer();
+              }
+            );
+
+
+            slider.addEventListener(
+              "focusin",
+              () => {
+                isPaused = true;
+                stopTimer();
+              }
+            );
+
+
+            slider.addEventListener(
+              "focusout",
+              (event) => {
+                if (
+                  slider.contains(
+                    event.relatedTarget
+                  )
+                ) {
+                  return;
+                }
+
+                isPaused = false;
+                startTimer();
+              }
+            );
+
+
+            document.addEventListener(
+              "visibilitychange",
+              () => {
+                if (document.hidden) {
+                  stopTimer();
+                } else {
+                  startTimer();
+                }
+              }
+            );
+
+
+            if (
+              "IntersectionObserver"
+              in window
+            ) {
+              const observer =
+                new IntersectionObserver(
+                  (entries) => {
+                    entries.forEach(
+                      (entry) => {
+                        if (
+                          entry.target !==
+                          slider
+                        ) {
+                          return;
+                        }
+
+                        isVisible =
+                          entry.isIntersecting &&
+                          entry.intersectionRatio >
+                            0.08;
+
+                        if (isVisible) {
+                          startTimer();
+                        } else {
+                          stopTimer();
+                        }
+                      }
+                    );
+                  },
+                  {
+                    threshold: [
+                      0,
+                      0.08,
+                      0.25
+                    ]
+                  }
+                );
+
+              observer.observe(slider);
+            } else {
+              isVisible = true;
+              startTimer();
+            }
+
+
+            showSlide(0);
+          }
+        );
+      }
+    );
+  </script>
+
 
 </body>
 </html>
