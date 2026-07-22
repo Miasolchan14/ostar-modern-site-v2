@@ -1939,3 +1939,154 @@ input {
     min-height: 230px;
   }
 }
+
+
+
+/*7.21*/
+/* ========================================
+   首页合作客户
+======================================== */
+
+.customer-partners-section {
+  padding: 105px 0;
+  background: #f4f8fd;
+}
+
+.customer-partners-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.customer-partners-heading div > span {
+  color: #1769f3;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.customer-partners-heading h2 {
+  margin: 13px 0 0;
+  color: #071a36;
+  font-size: 42px;
+  line-height: 1.25;
+  letter-spacing: -2px;
+}
+
+.customer-partners-heading > p {
+  max-width: 540px;
+  margin: 0;
+  color: #788a9e;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+
+/* Logo 网格 */
+
+.customer-logo-grid {
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.customer-logo-card {
+  min-width: 0;
+  height: 145px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #dce7f2;
+  border-radius: 18px;
+  box-shadow:
+    0 12px 30px
+    rgba(37, 76, 122, 0.045);
+  transition:
+    transform 0.23s ease,
+    border-color 0.23s ease,
+    box-shadow 0.23s ease;
+}
+
+.customer-logo-card:hover {
+  transform: translateY(-4px);
+  border-color: #bdd4eb;
+  box-shadow:
+    0 18px 40px
+    rgba(37, 76, 122, 0.09);
+}
+
+.customer-logo-card img {
+  max-width: 100%;
+  max-height: 75px;
+  display: block;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.72;
+  transition:
+    filter 0.23s ease,
+    opacity 0.23s ease,
+    transform 0.23s ease;
+}
+
+.customer-logo-card:hover img {
+  filter: grayscale(0);
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+
+/* ========================================
+   合作客户响应式
+======================================== */
+
+@media (max-width: 1150px) {
+
+  .customer-logo-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+@media (max-width: 850px) {
+
+  .customer-partners-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .customer-logo-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .customer-partners-section {
+    padding: 75px 0;
+  }
+
+  .customer-partners-heading h2 {
+    font-size: 34px;
+  }
+
+  .customer-logo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 11px;
+  }
+
+  .customer-logo-card {
+    height: 115px;
+    padding: 19px;
+    border-radius: 14px;
+  }
+
+  .customer-logo-card img {
+    max-height: 58px;
+  }
+}

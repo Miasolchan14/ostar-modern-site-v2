@@ -1996,3 +1996,461 @@
     align-self: flex-start;
   }
 }
+
+/* ========================================
+   荣誉证书与业务许可
+======================================== */
+
+.honor-documents-section {
+  margin-top: 34px;
+}
+
+.honor-documents-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 36px;
+}
+
+.honor-documents-heading div > span {
+  color: #1769f3;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.honor-documents-heading h4 {
+  margin: 12px 0 0;
+  color: #071a36;
+  font-size: 28px;
+}
+
+.honor-documents-heading > p {
+  max-width: 520px;
+  margin: 0;
+  color: #8293a7;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+
+/* 证书图片卡片 */
+
+.honor-certificate-grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+}
+
+.honor-certificate-card {
+  min-width: 0;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #dce7f2;
+  border-radius: 19px;
+  box-shadow:
+    0 13px 33px
+    rgba(37, 76, 122, 0.055);
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.honor-certificate-card:hover {
+  transform: translateY(-4px);
+  border-color: #bdd5ec;
+  box-shadow:
+    0 18px 40px
+    rgba(37, 76, 122, 0.09);
+}
+
+.honor-certificate-image {
+  height: 285px;
+  padding: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #f4f8fc;
+  border-bottom: 1px solid #e0e9f2;
+}
+
+.honor-certificate-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+.honor-certificate-content {
+  padding: 24px;
+}
+
+.honor-certificate-content > span {
+  color: #1769f3;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+
+.honor-certificate-content h5 {
+  margin: 12px 0 0;
+  color: #071a36;
+  font-size: 19px;
+  line-height: 1.45;
+}
+
+.honor-certificate-content p {
+  margin: 11px 0 0;
+  color: #76889c;
+  font-size: 10px;
+  line-height: 1.75;
+}
+
+.honor-certificate-content > a {
+  margin-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  color: #1769f3;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+
+/* PDF 许可证卡片 */
+
+.honor-license-grid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 17px;
+}
+
+.honor-license-card {
+  min-width: 0;
+  padding: 25px;
+  display: grid;
+  grid-template-columns: 55px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 19px;
+  background:
+    linear-gradient(
+      135deg,
+      #071a36,
+      #0a428e
+    );
+  border-radius: 18px;
+  box-shadow:
+    0 15px 35px
+    rgba(25, 64, 116, 0.15);
+}
+
+.honor-license-icon {
+  width: 55px;
+  height: 55px;
+  display: grid;
+  place-items: center;
+  color: #0a438e;
+  background: #ffffff;
+  border-radius: 14px;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.honor-license-content {
+  min-width: 0;
+}
+
+.honor-license-content > span {
+  color: #9fcaff;
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+
+.honor-license-content h5 {
+  margin: 9px 0 0;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.honor-license-content p {
+  margin: 8px 0 0;
+  color: #c8dcef;
+  font-size: 9px;
+  line-height: 1.65;
+}
+
+.honor-license-card > a {
+  min-width: 105px;
+  min-height: 42px;
+  padding: 0 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #071a36;
+  background: #ffffff;
+  border-radius: 10px;
+  font-size: 9px;
+  font-weight: 900;
+}
+
+
+@media (max-width: 1000px) {
+
+  .honor-certificate-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .honor-license-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 700px) {
+
+  .honor-documents-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .honor-certificate-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .honor-certificate-image {
+    height: 245px;
+  }
+
+  .honor-license-card {
+    grid-template-columns: 50px minmax(0, 1fr);
+  }
+
+  .honor-license-card > a {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+}
+
+/* ========================================
+   新版公司简介与总部配图
+======================================== */
+
+.company-profile-feature {
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns:
+    minmax(360px, 0.88fr)
+    minmax(0, 1.12fr);
+  align-items: stretch;
+  gap: 27px;
+}
+
+.company-profile-image {
+  min-height: 100%;
+  margin: 0;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #f7faff;
+  border: 1px solid #dce7f2;
+  border-radius: 20px;
+  box-shadow:
+    0 16px 38px
+    rgba(37, 76, 122, 0.07);
+}
+
+.company-profile-image img {
+  width: 100%;
+  min-height: 520px;
+  flex: 1;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 13px;
+}
+
+.company-profile-image figcaption {
+  padding: 14px 4px 2px;
+  color: #8293a7;
+  font-size: 9px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.company-profile-content {
+  padding: 36px;
+  color: #ffffff;
+  background:
+    linear-gradient(
+      145deg,
+      #071a36,
+      #0a428e 58%,
+      #1769f3
+    );
+  border-radius: 20px;
+  box-shadow:
+    0 18px 43px
+    rgba(25, 65, 116, 0.17);
+}
+
+.company-profile-eyebrow {
+  color: #9fcaff;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.company-profile-content h4 {
+  margin: 16px 0 0;
+  font-size: 29px;
+  line-height: 1.45;
+}
+
+.company-profile-text {
+  margin-top: 21px;
+}
+
+.company-profile-text p {
+  margin: 16px 0 0;
+  color: #c8dcef;
+  font-size: 11px;
+  line-height: 1.92;
+}
+
+.company-profile-text p:first-child {
+  margin-top: 0;
+}
+
+.company-profile-stat-grid {
+  margin-top: 27px;
+  padding-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 11px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.company-profile-stat-grid article {
+  min-width: 0;
+  min-height: 88px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 12px;
+}
+
+.company-profile-stat-grid strong {
+  color: #ffffff;
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.company-profile-stat-grid span {
+  margin-top: 7px;
+  color: #b8d1ec;
+  font-size: 8px;
+  line-height: 1.5;
+}
+
+.company-profile-actions {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+}
+
+.company-profile-actions a {
+  min-height: 48px;
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 23px;
+  border-radius: 11px;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.company-profile-actions a:first-child {
+  color: #071a36;
+  background: #ffffff;
+}
+
+.company-profile-actions a:last-child {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.17);
+}
+
+.company-profile-points {
+  margin-top: 17px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.company-profile-points article {
+  min-height: 190px;
+}
+
+@media (max-width: 1150px) {
+
+  .company-profile-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .company-profile-image img {
+    min-height: 430px;
+    max-height: 560px;
+  }
+
+  .company-profile-stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .company-profile-points {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+
+  .company-profile-image,
+  .company-profile-content {
+    padding: 21px;
+  }
+
+  .company-profile-image img {
+    min-height: 270px;
+    max-height: 360px;
+  }
+
+  .company-profile-content h4 {
+    font-size: 25px;
+  }
+
+  .company-profile-stat-grid,
+  .company-profile-points {
+    grid-template-columns: 1fr;
+  }
+
+  .company-profile-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .company-profile-actions a {
+    width: 100%;
+  }
+}
