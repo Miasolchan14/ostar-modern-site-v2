@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="奥斯达通信网站搜索结果提示"
+  >
+
+  <title>暂无相关数据｜奥斯达通信</title>
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    .search-empty-page {
+      min-height: 100vh;
+      color: #071a36;
+      background:
+        radial-gradient(
+          circle at 78% 18%,
+          rgba(23, 105, 243, 0.13),
+          transparent 34%
+        ),
+        linear-gradient(
+          180deg,
+          #f8fbff,
+          #eef5fc
+        );
+    }
+
+
+    /* ========================================
+       页面顶部
+    ======================================== */
+
+    .search-empty-header {
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid #dce7f2;
+      backdrop-filter: blur(12px);
+    }
+
+    .search-empty-header-inner {
+      width: min(1180px, calc(100% - 40px));
+      min-height: 82px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .search-empty-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      color: #071a36;
+      text-decoration: none;
+    }
+
+    .search-empty-brand img {
+      width: 48px;
+      height: 48px;
+      display: block;
+      object-fit: contain;
+    }
+
+    .search-empty-brand div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .search-empty-brand strong {
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .search-empty-brand small {
+      margin-top: 5px;
+      color: #71849a;
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .search-empty-header-home {
+      min-height: 42px;
+      padding: 0 17px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+      color: #1769f3;
+      font-size: 10px;
+      font-weight: 900;
+      text-decoration: none;
+      background: #edf5ff;
+      border: 1px solid #cfe0f1;
+      border-radius: 11px;
+    }
+
+
+    /* ========================================
+       中心内容
+    ======================================== */
+
+    .search-empty-main {
+      min-height: calc(100vh - 82px);
+      padding: 70px 20px 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .search-empty-card {
+      width: min(100%, 840px);
+      margin: 0 auto;
+      padding: 68px 55px;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+      background: #ffffff;
+      border: 1px solid #dce7f2;
+      border-radius: 28px;
+      box-shadow:
+        0 24px 65px
+        rgba(37, 76, 122, 0.12);
+    }
+
+    .search-empty-card::before {
+      position: absolute;
+      top: -115px;
+      right: -95px;
+      width: 290px;
+      height: 290px;
+      content: "";
+      background: rgba(23, 105, 243, 0.065);
+      border-radius: 50%;
+    }
+
+    .search-empty-card::after {
+      position: absolute;
+      bottom: -135px;
+      left: -115px;
+      width: 280px;
+      height: 280px;
+      content: "";
+      background: rgba(10, 66, 142, 0.045);
+      border-radius: 50%;
+    }
+
+    .search-empty-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .search-empty-icon {
+      width: 86px;
+      height: 86px;
+      margin: 0 auto;
+      display: grid;
+      place-items: center;
+      color: #1769f3;
+      background: #eaf3ff;
+      border-radius: 24px;
+      font-size: 33px;
+      font-weight: 900;
+      box-shadow:
+        0 12px 28px
+        rgba(23, 105, 243, 0.12);
+    }
+
+    .search-empty-eyebrow {
+      margin-top: 30px;
+      display: block;
+      color: #1769f3;
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .search-empty-card h1 {
+      margin: 15px 0 0;
+      color: #071a36;
+      font-size: clamp(35px, 5vw, 52px);
+      line-height: 1.25;
+      letter-spacing: -2px;
+    }
+
+    .search-empty-description {
+      max-width: 620px;
+      margin: 18px auto 0;
+      color: #778a9f;
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+
+    /* ========================================
+       搜索关键词
+    ======================================== */
+
+    .search-empty-keyword {
+      max-width: 100%;
+      margin: 23px auto 0;
+      padding: 14px 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: #63778d;
+      background: #f6f9fc;
+      border: 1px solid #dce6f0;
+      border-radius: 12px;
+      font-size: 11px;
+    }
+
+    .search-empty-keyword strong {
+      max-width: 420px;
+      overflow: hidden;
+      color: #1769f3;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+
+    /* ========================================
+       重新搜索
+    ======================================== */
+
+    .search-empty-search {
+      max-width: 590px;
+      margin: 30px auto 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+    }
+
+    .search-empty-search input {
+      width: 100%;
+      min-height: 52px;
+      padding: 0 17px;
+      color: #071a36;
+      background: #ffffff;
+      border: 1px solid #ceddeb;
+      border-radius: 12px;
+      outline: none;
+      font-size: 12px;
+    }
+
+    .search-empty-search input:focus {
+      border-color: #1769f3;
+      box-shadow:
+        0 0 0 4px
+        rgba(23, 105, 243, 0.09);
+    }
+
+    .search-empty-search button {
+      min-width: 105px;
+      min-height: 52px;
+      padding: 0 20px;
+      color: #ffffff;
+      cursor: pointer;
+      background:
+        linear-gradient(
+          135deg,
+          #1769f3,
+          #438cff
+        );
+      border: 0;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 900;
+      box-shadow:
+        0 12px 26px
+        rgba(23, 105, 243, 0.2);
+    }
+
+
+    /* ========================================
+       操作按钮
+    ======================================== */
+
+    .search-empty-actions {
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .search-empty-home,
+    .search-empty-back {
+      min-height: 50px;
+      padding: 0 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .search-empty-home {
+      color: #ffffff;
+      background: #071a36;
+      box-shadow:
+        0 12px 28px
+        rgba(7, 26, 54, 0.16);
+    }
+
+    .search-empty-back {
+      color: #1769f3;
+      cursor: pointer;
+      background: #ffffff;
+      border: 1px solid #cbddec;
+    }
+
+
+    /* ========================================
+       推荐栏目
+    ======================================== */
+
+    .search-empty-suggestions {
+      margin-top: 42px;
+      padding-top: 28px;
+      border-top: 1px solid #e2eaf2;
+    }
+
+    .search-empty-suggestions > span {
+      color: #94a4b6;
+      font-size: 9px;
+    }
+
+    .search-empty-suggestion-links {
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .search-empty-suggestion-links a {
+      padding: 9px 13px;
+      color: #60758c;
+      text-decoration: none;
+      background: #f5f8fc;
+      border: 1px solid #dfe8f1;
+      border-radius: 999px;
+      font-size: 9px;
+      font-weight: 800;
+    }
+
+    .search-empty-suggestion-links a:hover {
+      color: #1769f3;
+      border-color: #bfd5eb;
+    }
+
+
+    /* ========================================
+       手机适配
+    ======================================== */
+
+    @media (max-width: 650px) {
+      .search-empty-header-inner {
+        width: min(100% - 26px, 1180px);
+        min-height: 72px;
+      }
+
+      .search-empty-brand img {
+        width: 41px;
+        height: 41px;
+      }
+
+      .search-empty-brand strong {
+        font-size: 15px;
+      }
+
+      .search-empty-header-home {
+        padding: 0 13px;
+      }
+
+      .search-empty-main {
+        min-height: calc(100vh - 72px);
+        padding: 45px 14px 70px;
+      }
+
+      .search-empty-card {
+        padding: 48px 21px;
+        border-radius: 22px;
+      }
+
+      .search-empty-icon {
+        width: 74px;
+        height: 74px;
+        border-radius: 21px;
+        font-size: 28px;
+      }
+
+      .search-empty-search {
+        grid-template-columns: 1fr;
+      }
+
+      .search-empty-search button {
+        width: 100%;
+      }
+
+      .search-empty-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .search-empty-home,
+      .search-empty-back {
+        width: 100%;
+      }
+
+      .search-empty-keyword {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body class="search-empty-page">
+
+  <!-- 页面顶部 -->
+  <header class="search-empty-header">
+
+    <div class="search-empty-header-inner">
+
+      <a
+        class="search-empty-brand"
+        href="index.html"
+        aria-label="返回奥斯达通信首页"
+      >
+        <img
+          src="images/logo/ostar-logo-icon.png"
+          alt="奥斯达通信 Logo"
+        >
+
+        <div>
+          <strong>奥斯达通信</strong>
+          <small>OSTAR TELECOM</small>
+        </div>
+      </a>
+
+
+      <a
+        class="search-empty-header-home"
+        href="index.html"
+      >
+        网站首页
+        <span>→</span>
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- 中心内容 -->
+  <main class="search-empty-main">
+
+    <section class="search-empty-card">
+
+      <div class="search-empty-content">
+
+        <div class="search-empty-icon">
+          ?
+        </div>
+
+        <span class="search-empty-eyebrow">
+          SEARCH RESULT
+        </span>
+
+        <h1 id="searchEmptyTitle">
+          暂无相关数据
+        </h1>
+
+        <p
+          class="search-empty-description"
+          id="searchEmptyDescription"
+        >
+          没有找到与您输入的关键词相关的内容，
+          可以重新搜索或返回网站首页。
+        </p>
+
+
+        <div
+          class="search-empty-keyword"
+          id="searchEmptyKeywordBox"
+        >
+          <span>搜索关键词：</span>
+
+          <strong id="searchEmptyKeyword">
+            —
+          </strong>
+        </div>
+
+
+        <!-- 重新搜索 -->
+        <div class="search-empty-search">
+
+          <input
+            id="siteSearchInput"
+            type="search"
+            placeholder="请输入新闻、服务、资质或联系方式"
+            aria-label="重新搜索网站内容"
+          >
+
+          <button
+            id="siteSearchButton"
+            type="button"
+          >
+            重新搜索
+          </button>
+
+        </div>
+
+
+        <!-- 返回按钮 -->
+        <div class="search-empty-actions">
+
+          <a
+            class="search-empty-home"
+            href="index.html"
+          >
+            返回主页
+            <span>→</span>
+          </a>
+
+          <button
+            class="search-empty-back"
+            id="searchEmptyBackButton"
+            type="button"
+          >
+            返回上一页
+          </button>
+
+        </div>
+
+
+        <!-- 推荐栏目 -->
+        <div class="search-empty-suggestions">
+
+          <span>
+            您也可以浏览以下栏目
+          </span>
+
+          <div class="search-empty-suggestion-links">
+
+            <a href="services.html">
+              服务项目
+            </a>
+
+            <a href="about.html#company">
+              公司介绍
+            </a>
+
+            <a href="about.html#honors">
+              荣誉资质
+            </a>
+
+            <a href="about.html#careers">
+              人才招聘
+            </a>
+
+            <a href="news.html">
+              新闻动态
+            </a>
+
+            <a href="contact.html">
+              联系方式
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script>
+    "use strict";
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => {
+        const parameters =
+          new URLSearchParams(
+            window.location.search
+          );
+
+        const keyword =
+          parameters.get("q") || "";
+
+        const reason =
+          parameters.get("reason") || "";
+
+        const title =
+          document.getElementById(
+            "searchEmptyTitle"
+          );
+
+        const description =
+          document.getElementById(
+            "searchEmptyDescription"
+          );
+
+        const keywordBox =
+          document.getElementById(
+            "searchEmptyKeywordBox"
+          );
+
+        const keywordElement =
+          document.getElementById(
+            "searchEmptyKeyword"
+          );
+
+        const searchInput =
+          document.getElementById(
+            "siteSearchInput"
+          );
+
+        const backButton =
+          document.getElementById(
+            "searchEmptyBackButton"
+          );
+
+
+        if (reason === "empty") {
+          title.textContent =
+            "请输入搜索关键词";
+
+          description.textContent =
+            "搜索框中没有内容，请输入需要查找的新闻、服务、资质或联系方式。";
+
+          keywordBox.hidden = true;
+        } else {
+          title.textContent =
+            "暂无相关数据";
+
+          description.textContent =
+            "没有找到与您输入的关键词相关的内容，可以重新搜索或返回网站首页。";
+
+          keywordElement.textContent =
+            keyword || "未提供关键词";
+
+          searchInput.value =
+            keyword;
+        }
+
+
+        backButton.addEventListener(
+          "click",
+          () => {
+            if (window.history.length > 1) {
+              window.history.back();
+              return;
+            }
+
+            window.location.href =
+              "index.html";
+          }
+        );
+      }
+    );
+  </script>
+
+  <script src="js/search.js"></script>
+
+</body>
+</html>
