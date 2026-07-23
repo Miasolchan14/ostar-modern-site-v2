@@ -1,13 +1,14 @@
 "use strict";
 
 /*
- * 奥斯达通信关于我们页面
+ * 奥斯达通信“关于我们”页面
  *
  * 功能：
- * 1. 切换公司介绍、荣誉资质、人才招聘
- * 2. 根据网址 hash 自动打开对应栏目
- * 3. 支持键盘左右方向键切换
- * 4. 首屏“了解公司”按钮滚动到栏目区域
+ * 1. 切换公司介绍、董事长寄语、荣誉资质和人才招聘；
+ * 2. 支持 about.html#chairman 等网址直接打开栏目；
+ * 3. 支持浏览器前进与后退；
+ * 4. 支持键盘左右方向键、Home 和 End；
+ * 5. 不干扰页面中的专利证书轮播。
  */
 
 document.addEventListener(
@@ -37,11 +38,6 @@ document.addEventListener(
         )
       );
 
-
-    /*
-     * 页面缺少必要元素时停止执行，
-     * 避免出现 JavaScript 报错。
-     */
     if (
       tabButtons.length === 0 ||
       tabPanels.length === 0
@@ -49,42 +45,55 @@ document.addEventListener(
       return;
     }
 
+    const availableTabs =
+      tabButtons
+        .map((button) =>
+          String(
+            button.dataset.aboutTab || ""
+          )
+            .trim()
+            .toLowerCase()
+        )
+        .filter(Boolean);
 
-    const validTabs = [
-      "company",
-      "honors",
-      "careers"
-    ];
+    function normalizeTabName(
+      tabName
+    ) {
+      const normalized =
+        String(tabName || "")
+          .trim()
+          .toLowerCase();
 
+      return availableTabs.includes(
+        normalized
+      )
+        ? normalized
+        : availableTabs[0];
+    }
 
-    /*
-     * 打开指定栏目。
-     */
-    function activateAboutTab(
+    function openAboutTab(
       tabName,
       options = {}
     ) {
       const {
         updateHash = true,
-        shouldScroll = false,
-        shouldFocus = false
+        focusButton = false,
+        scrollToSection = false
       } = options;
 
+      const activeTab =
+        normalizeTabName(
+          tabName
+        );
 
-      const safeTabName =
-        validTabs.includes(tabName)
-          ? tabName
-          : "company";
-
-
-      /*
-       * 更新栏目按钮状态。
-       */
       tabButtons.forEach(
         (button) => {
           const isActive =
-            button.dataset.aboutTab ===
-            safeTabName;
+            String(
+              button.dataset.aboutTab ||
+              ""
+            ).toLowerCase() ===
+            activeTab;
 
           button.classList.toggle(
             "active",
@@ -97,29 +106,25 @@ document.addEventListener(
           );
 
           button.tabIndex =
-            isActive
-              ? 0
-              : -1;
-
+            isActive ? 0 : -1;
 
           if (
             isActive &&
-            shouldFocus
+            focusButton
           ) {
             button.focus();
           }
         }
       );
 
-
-      /*
-       * 更新栏目内容状态。
-       */
       tabPanels.forEach(
         (panel) => {
           const isActive =
-            panel.dataset.aboutPanel ===
-            safeTabName;
+            String(
+              panel.dataset.aboutPanel ||
+              ""
+            ).toLowerCase() ===
+            activeTab;
 
           panel.classList.toggle(
             "active",
@@ -128,34 +133,27 @@ document.addEventListener(
 
           panel.hidden =
             !isActive;
+
+          panel.setAttribute(
+            "aria-hidden",
+            String(!isActive)
+          );
         }
       );
 
-
-      /*
-       * 更新浏览器地址。
-       */
-      if (updateHash) {
-        const newHash =
-          `#${safeTabName}`;
-
-        if (
-          window.location.hash !==
-          newHash
-        ) {
-          history.replaceState(
-            null,
-            "",
-            newHash
-          );
-        }
+      if (
+        updateHash &&
+        window.location.hash !==
+          `#${activeTab}`
+      ) {
+        window.history.pushState(
+          null,
+          "",
+          `#${activeTab}`
+        );
       }
 
-
-      /*
-       * 需要时滚动到栏目区域。
-       */
-      if (shouldScroll) {
+      if (scrollToSection) {
         contentSection?.scrollIntoView({
           behavior: "smooth",
           block: "start"
@@ -163,46 +161,28 @@ document.addEventListener(
       }
     }
 
-
-    /*
-     * 点击栏目按钮。
-     */
     tabButtons.forEach(
-      (button) => {
+      (
+        button,
+        buttonIndex
+      ) => {
         button.addEventListener(
           "click",
           () => {
-            activateAboutTab(
+            openAboutTab(
               button.dataset.aboutTab,
               {
-                updateHash: true,
-                shouldScroll: false,
-                shouldFocus: false
+                updateHash: true
               }
             );
           }
         );
-      }
-    );
 
-
-    /*
-     * 键盘左右方向键切换栏目。
-     */
-    tabButtons.forEach(
-      (button) => {
         button.addEventListener(
           "keydown",
           (event) => {
-            const currentIndex =
-              tabButtons.indexOf(
-                button
-              );
-
-
             let nextIndex =
-              currentIndex;
-
+              buttonIndex;
 
             if (
               event.key ===
@@ -210,7 +190,7 @@ document.addEventListener(
             ) {
               nextIndex =
                 (
-                  currentIndex + 1
+                  buttonIndex + 1
                 ) %
                 tabButtons.length;
             } else if (
@@ -219,7 +199,8 @@ document.addEventListener(
             ) {
               nextIndex =
                 (
-                  currentIndex - 1 +
+                  buttonIndex -
+                  1 +
                   tabButtons.length
                 ) %
                 tabButtons.length;
@@ -238,20 +219,15 @@ document.addEventListener(
               return;
             }
 
-
             event.preventDefault();
 
-
-            const nextButton =
-              tabButtons[nextIndex];
-
-
-            activateAboutTab(
-              nextButton.dataset.aboutTab,
+            openAboutTab(
+              tabButtons[
+                nextIndex
+              ].dataset.aboutTab,
               {
                 updateHash: true,
-                shouldScroll: false,
-                shouldFocus: true
+                focusButton: true
               }
             );
           }
@@ -259,85 +235,82 @@ document.addEventListener(
       }
     );
 
-
-    /*
-     * 首屏“了解公司”按钮。
-     */
     viewAboutButton?.addEventListener(
       "click",
       () => {
-        activateAboutTab(
+        openAboutTab(
           "company",
           {
             updateHash: true,
-            shouldScroll: true,
-            shouldFocus: false
+            scrollToSection: true
           }
         );
       }
     );
 
+    function getTabFromHash() {
+      try {
+        return decodeURIComponent(
+          window.location.hash
+            .replace(/^#/, "")
+            .trim()
+            .toLowerCase()
+        );
+      } catch (error) {
+        console.warn(
+          "无法读取关于我们栏目地址：",
+          error
+        );
 
-    /*
-     * 用户手动修改网址 hash，
-     * 或点击浏览器前进、后退时切换栏目。
-     */
+        return "";
+      }
+    }
+
+    const initialTab =
+      getTabFromHash();
+
+    openAboutTab(
+      availableTabs.includes(
+        initialTab
+      )
+        ? initialTab
+        : availableTabs[0],
+      {
+        updateHash: false
+      }
+    );
+
+    window.addEventListener(
+      "popstate",
+      () => {
+        openAboutTab(
+          getTabFromHash(),
+          {
+            updateHash: false
+          }
+        );
+      }
+    );
+
     window.addEventListener(
       "hashchange",
       () => {
         const hashTab =
-          getAboutTabFromHash();
+          getTabFromHash();
 
-        activateAboutTab(
-          hashTab,
-          {
-            updateHash: false,
-            shouldScroll: false,
-            shouldFocus: false
-          }
-        );
-      }
-    );
-
-
-    /*
-     * 页面首次打开时确定显示栏目。
-     */
-    const initialTab =
-      getAboutTabFromHash();
-
-    activateAboutTab(
-      initialTab,
-      {
-        updateHash:
-          !window.location.hash,
-        shouldScroll: false,
-        shouldFocus: false
+        if (
+          availableTabs.includes(
+            hashTab
+          )
+        ) {
+          openAboutTab(
+            hashTab,
+            {
+              updateHash: false
+            }
+          );
+        }
       }
     );
   }
 );
-
-
-/*
- * 从网址中读取栏目名称。
- */
-function getAboutTabFromHash() {
-  const hashValue =
-    window.location.hash
-      .replace("#", "")
-      .trim()
-      .toLowerCase();
-
-  const validTabs = [
-    "company",
-    "honors",
-    "careers"
-  ];
-
-  return validTabs.includes(
-    hashValue
-  )
-    ? hashValue
-    : "company";
-}
