@@ -10,7 +10,7 @@
 
   <meta
     name="description"
-    content="了解深圳市奥斯达通信有限公司的公司介绍、董事长寄语、企业文化、业务资质和人才招聘信息"
+    content="了解深圳市奥斯达通信有限公司的公司介绍、董事长寄语、企业文化、业务资质、人才招聘和管理团队信息"
   >
 
   <title>关于我们｜奥斯达通信</title>
@@ -2083,6 +2083,264 @@ body.about-page .footer-bottom span {
   }
 }
 
+  
+
+
+/* ========================================
+   关于我们五个栏目同排显示
+======================================== */
+
+@media (min-width: 1051px) {
+  body.about-page .about-tabs {
+    grid-template-columns:
+      repeat(5, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  body.about-page .about-tab-button {
+    min-width: 0 !important;
+    min-height: 108px !important;
+    padding: 19px 14px !important;
+    gap: 12px !important;
+  }
+
+  body.about-page .about-tab-button > span {
+    width: 43px !important;
+    height: 43px !important;
+    flex: 0 0 43px !important;
+  }
+
+  body.about-page .about-tab-button strong {
+    font-size: 16px !important;
+  }
+
+  body.about-page .about-tab-button small {
+    font-size: 9px !important;
+    letter-spacing: 0.8px !important;
+    white-space: normal !important;
+  }
+}
+
+
+/* ========================================
+   管理团队
+======================================== */
+
+.management-team-section {
+  margin-top: 30px;
+}
+
+.management-team-heading {
+  max-width: 760px;
+}
+
+.management-team-heading > span {
+  color: #1769f3;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.8px;
+}
+
+.management-team-heading h4 {
+  margin: 14px 0 0;
+  color: #071a36;
+  font-size: 31px;
+  line-height: 1.42;
+}
+
+.management-team-heading p {
+  margin: 14px 0 0;
+  color: #65798f;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.management-team-grid {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.management-member-card {
+  min-height: 264px;
+  padding: 34px 36px;
+  display: grid;
+  grid-template-columns:
+    170px minmax(0, 1fr);
+  align-items: center;
+  gap: 30px;
+  background: #ffffff;
+  border: 1px solid #e1eaf3;
+  border-radius: 18px;
+  box-shadow:
+    0 14px 36px
+    rgba(37, 76, 122, 0.07);
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.management-member-card:hover {
+  transform: translateY(-4px);
+  border-color: #bfd6ee;
+  box-shadow:
+    0 20px 45px
+    rgba(37, 76, 122, 0.11);
+}
+
+.management-member-photo {
+  width: 166px;
+  height: 166px;
+  margin: 0;
+  padding: 7px;
+  overflow: hidden;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 1px #d9e6f2,
+    0 15px 30px
+    rgba(36, 72, 112, 0.16);
+}
+
+.management-member-photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #edf3f9;
+  transition: transform 0.25s ease;
+}
+
+.management-member-card:hover
+.management-member-photo img {
+  transform: scale(1.04);
+}
+
+/* 单独调整每张照片的裁剪位置 */
+.management-member-photo .team-photo-gong {
+  object-position: center 22%;
+}
+
+.management-member-photo .team-photo-song {
+  object-position: center 19%;
+}
+
+.management-member-photo .team-photo-huang {
+  object-position: center 22%;
+}
+
+.management-member-photo .team-photo-cheng {
+  object-position: center 20%;
+}
+
+.management-member-photo .team-photo-qin {
+  object-position: center 18%;
+}
+
+.management-member-photo .team-photo-chen {
+  object-position: center 16%;
+}
+
+.management-member-content {
+  min-width: 0;
+}
+
+.management-member-heading {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px 15px;
+}
+
+.management-member-heading h5 {
+  margin: 0;
+  color: #071a36;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.management-member-heading span {
+  color: #1769f3;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.55;
+}
+
+.management-member-content p {
+  margin: 18px 0 0;
+  color: #5e7288;
+  font-size: 14px;
+  line-height: 1.95;
+}
+
+
+/* ========================================
+   管理团队响应式
+======================================== */
+
+@media (max-width: 1200px) {
+  .management-member-card {
+    grid-template-columns:
+      145px minmax(0, 1fr);
+    padding: 30px;
+    gap: 25px;
+  }
+
+  .management-member-photo {
+    width: 142px;
+    height: 142px;
+  }
+}
+
+@media (max-width: 900px) {
+  .management-team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .management-member-card {
+    grid-template-columns:
+      165px minmax(0, 1fr);
+  }
+
+  .management-member-photo {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 600px) {
+  .management-member-card {
+    min-height: 0;
+    padding: 27px 22px;
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .management-member-photo {
+    width: 170px;
+    height: 170px;
+    margin: 0 auto;
+  }
+
+  .management-member-heading {
+    justify-content: center;
+  }
+
+  .management-member-heading h5 {
+    font-size: 23px;
+  }
+
+  .management-member-content p {
+    font-size: 14px;
+    text-align: left;
+  }
+}
+
   </style>
 
 </head>
@@ -2427,7 +2685,7 @@ body.about-page .footer-bottom span {
 
           <p>
             从公司发展、董事长寄语、服务理念、企业文化、
-            业务资质和人才建设等方面了解奥斯达通信。
+            业务资质、人才招聘和管理团队等方面了解奥斯达通信。
           </p>
 
         </div>
@@ -2508,6 +2766,24 @@ body.about-page .footer-bottom span {
             <div>
               <strong>人才招聘</strong>
               <small>CAREERS</small>
+            </div>
+          </button>
+
+
+          <button
+            class="about-tab-button"
+            id="aboutTabTeam"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="aboutPanelTeam"
+            data-about-tab="team"
+          >
+            <span>05</span>
+
+            <div>
+              <strong>管理团队</strong>
+              <small>MANAGEMENT TEAM</small>
             </div>
           </button>
 
@@ -4715,6 +4991,277 @@ body.about-page .footer-bottom span {
 
 </section>
 
+
+        <!-- ==============================
+             管理团队
+        =============================== -->
+        <section
+          class="about-tab-panel"
+          id="aboutPanelTeam"
+          role="tabpanel"
+          aria-labelledby="aboutTabTeam"
+          data-about-panel="team"
+          hidden
+        >
+
+          <div class="about-panel-header">
+
+            <div>
+
+              <span class="about-panel-eyebrow">
+                MANAGEMENT TEAM
+              </span>
+
+              <h3>
+                管理团队
+              </h3>
+
+              <p>
+                由公司管理、商务、技术、财务与开发人员组成，
+                共同支持企业经营、客户服务和项目实施。
+              </p>
+
+            </div>
+
+            <div class="about-panel-number">
+              05
+            </div>
+
+          </div>
+
+
+          <section class="management-team-section">
+
+            <div class="management-team-heading">
+
+              <span>OUR LEADERSHIP</span>
+
+              <h4>
+                专业协作，稳定推进
+              </h4>
+
+              <p>
+                奥斯达通信管理团队围绕公司经营、商务合作、
+                技术交付、财务管理与数字化开发等工作协同配合。
+              </p>
+
+            </div>
+
+
+            <div class="management-team-grid">
+
+              <!-- 左一：董事长 -->
+              <article class="management-member-card">
+
+                <figure class="management-member-photo">
+
+                  <img
+                    class="team-photo-gong"
+                    src="images/team/team-gong-biyun.png"
+                    alt="深圳市奥斯达通信有限公司董事长龚碧云"
+                    loading="lazy"
+                  >
+
+                </figure>
+
+                <div class="management-member-content">
+
+                  <div class="management-member-heading">
+
+                    <h5>龚碧云</h5>
+
+                    <span>董事长</span>
+
+                  </div>
+
+                  <p>
+                    负责公司战略方向、经营管理与组织发展，
+                    推动综合通信业务和长期合作体系建设。
+                  </p>
+
+                </div>
+
+              </article>
+
+
+              <!-- 右一：商务总监 -->
+              <article class="management-member-card">
+
+                <figure class="management-member-photo">
+
+                  <img
+                    class="team-photo-song"
+                    src="images/team/team-song-ping.jpg"
+                    alt="深圳市奥斯达通信有限公司商务总监宋平"
+                    loading="lazy"
+                  >
+
+                </figure>
+
+                <div class="management-member-content">
+
+                  <div class="management-member-heading">
+
+                    <h5>宋平</h5>
+
+                    <span>商务总监</span>
+
+                  </div>
+
+                  <p>
+                    负责商务合作、重点客户沟通与项目协同，
+                    推动公司服务方案与市场需求有效衔接。
+                  </p>
+
+                </div>
+
+              </article>
+
+
+              <!-- 左二：技术总监 -->
+              <article class="management-member-card">
+
+                <figure class="management-member-photo">
+
+                  <img
+                    class="team-photo-huang"
+                    src="images/team/team-huang-yaohui.png"
+                    alt="深圳市奥斯达通信有限公司技术总监黄遥辉"
+                    loading="lazy"
+                  >
+
+                </figure>
+
+                <div class="management-member-content">
+
+                  <div class="management-member-heading">
+
+                    <h5>黄遥辉</h5>
+
+                    <span>技术总监</span>
+
+                  </div>
+
+                  <p>
+                    负责技术体系、网络架构、工程实施与运维质量，
+                    保障项目安全、稳定和规范交付。
+                  </p>
+
+                </div>
+
+              </article>
+
+
+              <!-- 右二：财务总监 -->
+              <article class="management-member-card">
+
+                <figure class="management-member-photo">
+
+                  <img
+                    class="team-photo-cheng"
+                    src="images/team/team-cheng-lifang.jpg"
+                    alt="深圳市奥斯达通信有限公司财务总监成立芳"
+                    loading="lazy"
+                  >
+
+                </figure>
+
+                <div class="management-member-content">
+
+                  <div class="management-member-heading">
+
+                    <h5>成立芳</h5>
+
+                    <span>财务总监</span>
+
+                  </div>
+
+                  <p>
+                    负责财务管理、预算控制与经营分析，
+                    为公司规范运营和业务决策提供支持。
+                  </p>
+
+                </div>
+
+              </article>
+
+
+              <!-- 左三：商务助理 -->
+              <article class="management-member-card">
+
+                <figure class="management-member-photo">
+
+                  <img
+                    class="team-photo-qin"
+                    src="images/team/team-qin-bin.jpg"
+                    alt="深圳市奥斯达通信有限公司商务助理覃彬"
+                    loading="lazy"
+                  >
+
+                </figure>
+
+                <div class="management-member-content">
+
+                  <div class="management-member-heading">
+
+                    <h5>覃彬</h5>
+
+                    <span>商务助理</span>
+
+                  </div>
+
+                  <p>
+                    协助客户沟通、商务资料、项目跟进及跨部门协调，
+                    保障业务流程顺畅推进。
+                  </p>
+
+                </div>
+
+              </article>
+
+
+              <!-- 右三：ai系统研究部技术人员 -->
+              <article class="management-member-card">
+
+                <figure class="management-member-photo">
+
+                  <img
+                    class="team-photo-chen"
+                    src="images/team/team-chen-yitong.jpg"
+                    alt="深圳市奥斯达通信有限公司ai系统研究部천이퉁"
+                    loading="lazy"
+                  >
+
+                </figure>
+
+                <div class="management-member-content">
+
+                  <div class="management-member-heading">
+
+                    <h5>천이퉁</h5>
+
+                    <span>ai系统研究部</span>
+
+                  </div>
+
+                  <p>
+                      具备韩国留学及跨文化项目实践经验，曾在韩国获得国家级奖项
+                      并参与专利成果的研发与项目实施。现负责公司官方网站、
+                      内部数字化工具及相关业务系统的开发、维护与持续优化，
+                      协助推进内容管理、业务流程数字化及项目技术支持，
+                      具备良好的技术执行能力、项目协作能力和创新意识。
+                  </p>
+
+                </div>
+
+              </article>
+
+            </div>
+
+          </section>
+
+        </section>
+
       </div>
 
     </section>
@@ -4846,6 +5393,7 @@ body.about-page .footer-bottom span {
           <a href="about.html#chairman">董事长寄语</a>
           <a href="about.html#honors">荣誉资质</a>
           <a href="about.html#careers">人才招聘</a>
+          <a href="about.html#team">管理团队</a>
         </div>
 
         <div>
