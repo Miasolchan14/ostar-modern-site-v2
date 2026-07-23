@@ -2477,3 +2477,778 @@
     height: 230px;
   }
 }
+
+/* =========================
+   董事长寄语
+========================= */
+
+.chairman-message-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 460px);
+  gap: 48px;
+  align-items: center;
+  padding: 36px 0 10px;
+}
+
+.chairman-message-copy h4 {
+  margin: 0 0 22px;
+  font-size: 40px;
+  line-height: 1.35;
+  color: #0b2a57;
+  font-weight: 800;
+}
+
+.chairman-message-label {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #2563eb;
+  text-transform: uppercase;
+}
+
+.chairman-message-body p {
+  margin: 0 0 18px;
+  font-size: 15px;
+  line-height: 2;
+  color: #4a6484;
+}
+
+.chairman-message-signature {
+  margin-top: 26px;
+}
+
+.chairman-message-signature small {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: #7a8ca5;
+  letter-spacing: 1px;
+}
+
+.chairman-message-signature strong {
+  font-size: 16px;
+  color: #0b2a57;
+  font-weight: 800;
+}
+.chairman-message-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 520px;
+}
+
+.chairman-photo-ring {
+  position: relative;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, #f4f8ff 0%, #edf3ff 72%, #e4ecfb 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 0 1px rgba(80, 120, 200, 0.08);
+}
+
+.chairman-photo-ring::before {
+  content: "";
+  position: absolute;
+  inset: -22px;
+  border-radius: 50%;
+  border: 1px solid rgba(77, 121, 214, 0.12);
+}
+
+.chairman-photo-card {
+  position: relative;
+  width: 300px;
+  height: 380px;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 28px 60px rgba(20, 48, 102, 0.14);
+}
+
+.chairman-photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.chairman-vertical-title {
+  position: absolute;
+  right: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chairman-vertical-title strong {
+  font-size: 28px;
+  font-weight: 800;
+  color: #3b82f6;
+  letter-spacing: 2px;
+}
+
+.chairman-vertical-title span {
+  font-size: 11px;
+  color: #8b97ab;
+  letter-spacing: 1px;
+}
+@media (max-width: 980px) {
+  .chairman-message-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .chairman-message-visual {
+    min-height: auto;
+    padding-bottom: 20px;
+  }
+
+  .chairman-photo-ring {
+    width: 320px;
+    height: 320px;
+  }
+
+  .chairman-photo-card {
+    width: 230px;
+    height: 300px;
+  }
+
+  .chairman-vertical-title {
+    right: 0;
+  }
+
+  .chairman-message-copy h4 {
+    font-size: 30px;
+  }
+}
+
+
+/* ========================================
+   ABOUT FINAL TYPOGRAPHY
+   只放大字体与行高，不改变布局、颜色、尺寸和图片
+======================================== */
+
+body.about-page {
+  font-size: 17px !important;
+}
+
+/* 顶部 */
+body.about-page .brand-name strong {
+  font-size: 20px !important;
+  line-height: 1.35 !important;
+}
+
+body.about-page .brand-name small {
+  font-size: 10px !important;
+  line-height: 1.55 !important;
+}
+
+body.about-page .search-box input,
+body.about-page .search-box button,
+body.about-page .login-button {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+
+body.about-page .hot-search,
+body.about-page .hot-search a {
+  font-size: 12px !important;
+  line-height: 1.75 !important;
+}
+
+body.about-page .nav-link {
+  font-size: 15px !important;
+  line-height: 1.55 !important;
+}
+
+/* 首屏 */
+body.about-page .about-breadcrumb,
+body.about-page .about-breadcrumb a,
+body.about-page .about-breadcrumb strong {
+  font-size: 13px !important;
+  line-height: 1.65 !important;
+}
+
+body.about-page .about-eyebrow,
+body.about-page .about-visual-label {
+  font-size: 11px !important;
+  line-height: 1.65 !important;
+}
+
+body.about-page .about-hero-content h1 {
+  font-size: clamp(60px, 5.2vw, 82px) !important;
+  line-height: 1.12 !important;
+}
+
+body.about-page .about-hero-content h1 span {
+  font-size: 0.48em !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .about-hero-content > p {
+  font-size: 16px !important;
+  line-height: 2 !important;
+}
+
+body.about-page .about-primary-button,
+body.about-page .about-secondary-button {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+
+body.about-page .about-visual-card > strong {
+  font-size: 45px !important;
+  line-height: 1.25 !important;
+}
+
+body.about-page .about-visual-card > p {
+  font-size: 12px !important;
+  line-height: 1.75 !important;
+}
+
+/* 公司能力概览 */
+body.about-page .about-overview-grid article > span {
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .about-overview-grid strong {
+  font-size: 19px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .about-overview-grid p {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+/* 页面总标题 */
+body.about-page .about-section-heading div > span {
+  font-size: 11px !important;
+  line-height: 1.6 !important;
+}
+
+body.about-page .about-section-heading h2 {
+  font-size: clamp(40px, 4vw, 51px) !important;
+  line-height: 1.3 !important;
+}
+
+body.about-page .about-section-heading > p {
+  font-size: 15px !important;
+  line-height: 1.95 !important;
+}
+
+/* 四个栏目 */
+body.about-page .about-tab-button > span {
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+}
+
+body.about-page .about-tab-button strong {
+  font-size: 17px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .about-tab-button small {
+  font-size: 10px !important;
+  line-height: 1.55 !important;
+}
+
+/* 栏目标题 */
+body.about-page .about-panel-eyebrow {
+  font-size: 11px !important;
+  line-height: 1.65 !important;
+}
+
+body.about-page .about-panel-header h3 {
+  font-size: clamp(29px, 3vw, 34px) !important;
+  line-height: 1.45 !important;
+}
+
+body.about-page .about-panel-header p {
+  font-size: 15px !important;
+  line-height: 1.95 !important;
+}
+
+body.about-page .about-panel-number {
+  font-size: 57px !important;
+  line-height: 1 !important;
+}
+
+/* 公司简介 */
+body.about-page .company-profile-eyebrow,
+body.about-page .company-introduction-main > span {
+  font-size: 11px !important;
+  line-height: 1.6 !important;
+}
+
+body.about-page .company-profile-content h4,
+body.about-page .company-introduction-main h4 {
+  font-size: 29px !important;
+  line-height: 1.48 !important;
+}
+
+body.about-page .company-profile-text p,
+body.about-page .company-introduction-main p {
+  font-size: 15px !important;
+  line-height: 2.05 !important;
+}
+
+body.about-page .company-profile-image figcaption {
+  font-size: 12px !important;
+  line-height: 1.75 !important;
+}
+
+body.about-page .company-profile-stat-grid strong {
+  font-size: 25px !important;
+  line-height: 1.3 !important;
+}
+
+body.about-page .company-profile-stat-grid span {
+  font-size: 13px !important;
+  line-height: 1.65 !important;
+}
+
+body.about-page .company-profile-actions a,
+body.about-page .company-introduction-main > a {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+
+body.about-page .company-introduction-points article > span {
+  font-size: 12px !important;
+  line-height: 1.45 !important;
+}
+
+body.about-page .company-introduction-points strong {
+  font-size: 17px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .company-introduction-points p {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+/* 企业文化 */
+body.about-page .company-culture-heading > span,
+body.about-page .company-development div > span {
+  font-size: 11px !important;
+  line-height: 1.6 !important;
+}
+
+body.about-page .company-culture-heading h4,
+body.about-page .company-development h4 {
+  font-size: 29px !important;
+  line-height: 1.48 !important;
+}
+
+body.about-page .company-culture-grid article > span {
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .company-culture-grid h5 {
+  font-size: 20px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .company-culture-grid p {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+body.about-page .company-development li {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+/* 董事长寄语 */
+body.about-page .chairman-message-label {
+  font-size: 11px !important;
+  line-height: 1.65 !important;
+}
+
+body.about-page .chairman-message-copy h4 {
+  font-size: clamp(36px, 4vw, 46px) !important;
+  line-height: 1.4 !important;
+}
+
+body.about-page .chairman-message-body p {
+  font-size: 15px !important;
+  line-height: 2.05 !important;
+}
+
+body.about-page .chairman-message-body p strong {
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+body.about-page .chairman-message-signature small {
+  font-size: 11px !important;
+  line-height: 1.65 !important;
+}
+
+body.about-page .chairman-message-signature strong {
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .chairman-person-information strong {
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .chairman-person-information span {
+  font-size: 11px !important;
+  line-height: 1.65 !important;
+}
+
+body.about-page .chairman-vertical-title strong {
+  font-size: 24px !important;
+  line-height: 1.2 !important;
+}
+
+body.about-page .chairman-vertical-title span {
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+}
+
+/* 荣誉证书 */
+body.about-page .honor-documents-heading span,
+body.about-page .honors-introduction-content > span,
+body.about-page .honors-document-card > span {
+  font-size: 11px !important;
+  line-height: 1.6 !important;
+}
+
+body.about-page .honor-documents-heading h4,
+body.about-page .honors-introduction-content h4 {
+  font-size: 29px !important;
+  line-height: 1.45 !important;
+}
+
+body.about-page .honor-documents-heading > p,
+body.about-page .honors-introduction-content p {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+body.about-page .honor-certificate-content > span {
+  font-size: 11px !important;
+  line-height: 1.55 !important;
+}
+
+body.about-page .honor-certificate-content h5 {
+  font-size: 21px !important;
+  line-height: 1.55 !important;
+}
+
+body.about-page .honor-certificate-content p {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+body.about-page .honor-certificate-content a {
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+}
+
+body.about-page .honors-category-grid h4 {
+  font-size: 20px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .honors-category-grid p,
+body.about-page .honors-placeholder p {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+body.about-page .honors-category-grid small {
+  font-size: 11px !important;
+  line-height: 1.6 !important;
+}
+
+/* 专利 */
+body.about-page .patent-showcase-heading div > span {
+  font-size: 11px !important;
+  line-height: 1.6 !important;
+}
+
+body.about-page .patent-showcase-heading h4 {
+  font-size: 29px !important;
+  line-height: 1.45 !important;
+}
+
+body.about-page .patent-showcase-heading > p {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+body.about-page .patent-page-badge {
+  font-size: 11px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .patent-card-labels > span,
+body.about-page .patent-card-labels > small {
+  font-size: 10px !important;
+  line-height: 1.55 !important;
+}
+
+body.about-page .patent-card-content h5 {
+  font-size: 20px !important;
+  line-height: 1.6 !important;
+}
+
+body.about-page .patent-card-content p {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+body.about-page .patent-card-meta span {
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .patent-card-meta strong {
+  font-size: 12px !important;
+  line-height: 1.6 !important;
+}
+
+body.about-page .patent-card-tip {
+  font-size: 11px !important;
+  line-height: 1.65 !important;
+}
+
+/* 许可证与资质 */
+body.about-page .honor-license-content > span,
+body.about-page .qualification-summary-eyebrow,
+body.about-page .qualification-detail-grid article > span,
+body.about-page .qualification-notice > span {
+  font-size: 11px !important;
+  line-height: 1.6 !important;
+}
+
+body.about-page .honor-license-content h5 {
+  font-size: 20px !important;
+  line-height: 1.55 !important;
+}
+
+body.about-page .honor-license-content p,
+body.about-page .qualification-summary > p,
+body.about-page .qualification-summary-grid p,
+body.about-page .qualification-detail-grid p,
+body.about-page .qualification-notice p {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+body.about-page .honor-license-card > a {
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+}
+
+body.about-page .qualification-image-card figcaption {
+  font-size: 12px !important;
+  line-height: 1.7 !important;
+}
+
+body.about-page .qualification-summary h4 {
+  font-size: 29px !important;
+  line-height: 1.45 !important;
+}
+
+body.about-page .qualification-summary-grid strong,
+body.about-page .qualification-detail-grid strong {
+  font-size: 17px !important;
+  line-height: 1.55 !important;
+}
+
+/* 人才招聘 */
+body.about-page .career-vacancies-heading span,
+body.about-page .career-values-heading span,
+body.about-page .careers-hero-card div > span {
+  font-size: 11px !important;
+  line-height: 1.6 !important;
+}
+
+body.about-page .career-vacancies-heading h4,
+body.about-page .career-values-heading h4,
+body.about-page .career-application-card h4,
+body.about-page .careers-hero-card h4 {
+  font-size: 29px !important;
+  line-height: 1.45 !important;
+}
+
+body.about-page .career-vacancies-heading p,
+body.about-page .career-values-heading p,
+body.about-page .career-application-card p,
+body.about-page .career-notice p,
+body.about-page .careers-hero-card p {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+body.about-page .career-job-category {
+  font-size: 11px !important;
+  line-height: 1.55 !important;
+}
+
+body.about-page .career-job-header h5 {
+  font-size: 22px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .career-job-count {
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .career-job-body h6 {
+  font-size: 17px !important;
+  line-height: 1.55 !important;
+}
+
+body.about-page .career-job-body li,
+body.about-page .career-direction-grid p,
+body.about-page .career-direction-grid li {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+body.about-page .career-values-grid strong {
+  font-size: 18px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .career-values-grid p,
+body.about-page .career-application-contact span,
+body.about-page .career-application-contact strong {
+  font-size: 14px !important;
+  line-height: 1.85 !important;
+}
+
+/* 服务与联系 */
+body.about-page .about-service-heading > span,
+body.about-page .about-contact-inner > div > span {
+  font-size: 11px !important;
+  line-height: 1.6 !important;
+}
+
+body.about-page .about-service-heading h2,
+body.about-page .about-contact-inner h2 {
+  font-size: clamp(33px, 3vw, 40px) !important;
+  line-height: 1.42 !important;
+}
+
+body.about-page .about-service-grid h3 {
+  font-size: 21px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .about-service-grid p,
+body.about-page .about-contact-inner p,
+body.about-page .about-service-values span {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+body.about-page .about-contact-cta {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+
+/* 页脚 */
+body.about-page .site-footer .footer-small-title {
+  font-size: 11px !important;
+  line-height: 1.6 !important;
+}
+
+body.about-page .site-footer h3 {
+  font-size: 18px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .site-footer p,
+body.about-page .site-footer a,
+body.about-page .footer-bottom span {
+  font-size: 13px !important;
+  line-height: 1.85 !important;
+}
+
+/* 平板 */
+@media (max-width: 1050px) {
+  body.about-page .about-hero-content > p,
+  body.about-page .company-profile-text p,
+  body.about-page .chairman-message-body p {
+    font-size: 15px !important;
+  }
+}
+
+/* 手机 */
+@media (max-width: 700px) {
+  body.about-page {
+    font-size: 16px !important;
+  }
+
+  body.about-page .about-hero-content h1 {
+    font-size: 39px !important;
+  }
+
+  body.about-page .about-hero-content h1 span {
+    font-size: 22px !important;
+  }
+
+  body.about-page .about-hero-content > p,
+  body.about-page .about-section-heading > p,
+  body.about-page .about-panel-header p,
+  body.about-page .company-profile-text p,
+  body.about-page .chairman-message-body p {
+    font-size: 14px !important;
+  }
+
+  body.about-page .about-section-heading h2 {
+    font-size: 36px !important;
+  }
+
+  body.about-page .about-panel-header h3 {
+    font-size: 27px !important;
+  }
+
+  body.about-page .about-tab-button strong {
+    font-size: 16px !important;
+  }
+
+  body.about-page .about-tab-button small {
+    font-size: 9px !important;
+  }
+
+  body.about-page .chairman-message-copy h4 {
+    font-size: 35px !important;
+  }
+
+  body.about-page .honor-documents-heading h4,
+  body.about-page .patent-showcase-heading h4,
+  body.about-page .career-vacancies-heading h4,
+  body.about-page .career-values-heading h4 {
+    font-size: 27px !important;
+  }
+
+  body.about-page .site-footer p,
+  body.about-page .site-footer a {
+    font-size: 12px !important;
+  }
+}
+
