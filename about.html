@@ -10,7 +10,7 @@
 
   <meta
     name="description"
-    content="了解深圳市奥斯达通信有限公司的公司介绍、企业文化、业务资质和人才招聘信息"
+    content="了解深圳市奥斯达通信有限公司的公司介绍、董事长寄语、企业文化、业务资质和人才招聘信息"
   >
 
   <title>关于我们｜奥斯达通信</title>
@@ -353,6 +353,1736 @@
         transition: none;
       }
     }
+  
+
+
+
+    /* ========================================
+       关于我们四个栏目：等宽居中
+    ======================================== */
+
+    .about-tabs {
+      display: grid !important;
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      align-items: stretch;
+      gap: 12px !important;
+    }
+
+    .about-tab-button {
+      width: 100%;
+      min-width: 0;
+      min-height: 104px;
+      padding: 20px 18px !important;
+      justify-content: flex-start;
+      text-align: left;
+    }
+
+    .about-tab-button > span {
+      width: 45px;
+      height: 45px;
+      flex: 0 0 45px;
+      display: grid;
+      place-items: center;
+      font-size: 11px !important;
+    }
+
+    .about-tab-button > div {
+      min-width: 0;
+    }
+
+    .about-tab-button strong {
+      font-size: 14px !important;
+      line-height: 1.45;
+    }
+
+    .about-tab-button small {
+      margin-top: 7px;
+      display: block;
+      overflow: hidden;
+      font-size: 7px !important;
+      letter-spacing: 1.25px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 1000px) {
+      .about-tabs {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .about-tabs {
+        grid-template-columns: 1fr !important;
+      }
+
+      .about-tab-button {
+        min-height: 88px;
+      }
+    }
+
+    /* ========================================
+       董事长寄语独立栏目
+    ======================================== */
+
+    .chairman-message-card {
+      margin-top: 30px;
+      min-height: 650px;
+      padding: 64px 58px;
+      overflow: hidden;
+      position: relative;
+      display: grid;
+      grid-template-columns:
+        minmax(0, 1.35fr)
+        minmax(340px, 0.65fr);
+      align-items: center;
+      gap: 72px;
+      background: #ffffff;
+      border: 1px solid #dce7f2;
+      border-radius: 22px;
+      box-shadow:
+        0 18px 46px
+        rgba(37, 76, 122, 0.075);
+    }
+
+    .chairman-message-card::before {
+      position: absolute;
+      top: -160px;
+      right: -120px;
+      width: 430px;
+      height: 430px;
+      content: "";
+      pointer-events: none;
+      background:
+        rgba(23, 105, 243, 0.05);
+      border-radius: 50%;
+    }
+
+
+    /* 左侧寄语 */
+
+    .chairman-message-copy {
+      min-width: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .chairman-message-label {
+      color: #1769f3;
+      font-size: 8px;
+      font-weight: 900;
+      letter-spacing: 2.2px;
+    }
+
+    .chairman-message-quote {
+      height: 56px;
+      margin-top: 14px;
+      color: rgba(23, 105, 243, 0.16);
+      font-family: Georgia, serif;
+      font-size: 94px;
+      font-weight: 700;
+      line-height: 0.9;
+    }
+
+    .chairman-message-copy h4 {
+      max-width: 650px;
+      margin: 18px 0 0;
+      color: #377fc9;
+      font-size: clamp(31px, 4vw, 46px);
+      font-style: italic;
+      font-weight: 900;
+      line-height: 1.35;
+      letter-spacing: -1.3px;
+    }
+
+    .chairman-message-body {
+      max-width: 720px;
+      margin-top: 29px;
+    }
+
+    .chairman-message-body p {
+      margin: 20px 0 0;
+      color: #52677e;
+      font-size: 13px;
+      line-height: 2.05;
+      text-align: justify;
+    }
+
+    .chairman-message-body p strong {
+      color: #253f5d;
+      font-weight: 900;
+    }
+
+    .chairman-message-body p:first-child {
+      margin-top: 0;
+    }
+
+    .chairman-message-signature {
+      margin-top: 31px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .chairman-message-signature > span {
+      width: 42px;
+      height: 2px;
+      flex: 0 0 auto;
+      background: #1769f3;
+      border-radius: 999px;
+    }
+
+    .chairman-message-signature > div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chairman-message-signature small {
+      color: #8a9bad;
+      font-size: 8px;
+      line-height: 1.6;
+    }
+
+    .chairman-message-signature strong {
+      margin-top: 5px;
+      color: #071a36;
+      font-size: 13px;
+    }
+
+
+    /* 右侧照片区域 */
+
+    .chairman-portrait-panel {
+      min-height: 500px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chairman-portrait-circle {
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      background:
+        linear-gradient(
+          145deg,
+          #dcecff,
+          #f8fbff
+        );
+      border-radius: 50%;
+    }
+
+    .chairman-photo-frame {
+      width: min(100%, 330px);
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+      background: #ffffff;
+      border: 9px solid #ffffff;
+      border-radius: 50%;
+      box-shadow:
+        0 25px 52px
+        rgba(31, 79, 132, 0.16);
+    }
+
+    .chairman-photo-frame img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .chairman-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: #7d90a5;
+      text-align: center;
+      background:
+        linear-gradient(
+          160deg,
+          #eef5fc,
+          #dceaf8
+        );
+    }
+
+    .chairman-photo-placeholder span {
+      color: #1769f3;
+      font-size: 8px;
+      font-weight: 900;
+      letter-spacing: 2.3px;
+    }
+
+    .chairman-photo-placeholder strong {
+      margin-top: 17px;
+      color: #294766;
+      font-size: 18px;
+    }
+
+    .chairman-photo-placeholder small {
+      margin-top: 8px;
+      color: #899bad;
+      font-size: 9px;
+    }
+
+    .chairman-person-information {
+      position: absolute;
+      right: 22px;
+      bottom: 13px;
+      z-index: 4;
+      min-width: 225px;
+      padding: 17px 19px;
+      display: flex;
+      flex-direction: column;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid #d7e4f0;
+      border-radius: 14px;
+      box-shadow:
+        0 12px 30px
+        rgba(37, 76, 122, 0.12);
+      backdrop-filter: blur(10px);
+    }
+
+    .chairman-person-information strong {
+      color: #071a36;
+      font-size: 13px;
+    }
+
+    .chairman-person-information span {
+      margin-top: 6px;
+      color: #8496a8;
+      font-size: 8px;
+      line-height: 1.5;
+    }
+
+    .chairman-vertical-title {
+      position: absolute;
+      top: 42px;
+      right: -2px;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .chairman-vertical-title strong {
+      color: #1769f3;
+      font-size: 22px;
+      font-weight: 900;
+      line-height: 1.1;
+      writing-mode: vertical-rl;
+      letter-spacing: 8px;
+    }
+
+    .chairman-vertical-title span {
+      margin-top: 17px;
+      color: #8ca0b5;
+      font-size: 7px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      writing-mode: vertical-rl;
+    }
+
+
+    /* 提示说明 */
+
+    .chairman-message-note {
+      margin-top: 20px;
+      padding: 18px 21px;
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      background: #f5f9fd;
+      border: 1px solid #dce7f2;
+      border-radius: 13px;
+    }
+
+    .chairman-message-note > span {
+      flex: 0 0 auto;
+      color: #1769f3;
+      font-size: 8px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .chairman-message-note p {
+      margin: 0;
+      color: #718499;
+      font-size: 9px;
+      line-height: 1.8;
+    }
+
+
+
+
+    .chairman-panel-heading {
+      align-items: flex-end;
+    }
+
+    .chairman-logo-placeholder {
+      padding: 45px;
+      background:
+        radial-gradient(
+          circle at 50% 38%,
+          #ffffff 0%,
+          #f0f6fd 48%,
+          #dceaf8 100%
+        );
+    }
+
+    .chairman-logo-placeholder img {
+      width: 112px;
+      height: 112px;
+      object-fit: contain;
+      filter:
+        drop-shadow(
+          0 14px 22px
+          rgba(23, 105, 243, 0.14)
+        );
+    }
+
+    .chairman-logo-placeholder strong {
+      margin-top: 24px;
+    }
+
+    .chairman-logo-placeholder small {
+      margin-top: 8px;
+    }
+
+    @media (max-width: 1050px) {
+      .chairman-message-card {
+        grid-template-columns: 1fr;
+      }
+
+      .chairman-portrait-panel {
+        min-height: 520px;
+      }
+
+      .chairman-person-information {
+        right: calc(50% - 210px);
+      }
+
+      .chairman-vertical-title {
+        right: calc(50% - 205px);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .chairman-message-card {
+        min-height: 0;
+        padding: 31px 22px;
+        gap: 35px;
+        border-radius: 18px;
+      }
+
+      .chairman-message-copy h4 {
+        font-size: 33px;
+      }
+
+      .chairman-message-body p {
+        font-size: 11px;
+        line-height: 1.95;
+      }
+
+      .chairman-portrait-panel {
+        min-height: 440px;
+      }
+
+      .chairman-portrait-circle {
+        width: 280px;
+        height: 280px;
+      }
+
+      .chairman-photo-frame {
+        width: 235px;
+      }
+
+      .chairman-person-information {
+        right: 0;
+        bottom: 4px;
+        min-width: 205px;
+      }
+
+      .chairman-vertical-title {
+        top: 28px;
+        right: 3px;
+      }
+
+      .chairman-message-note {
+        flex-direction: column;
+        gap: 9px;
+      }
+    }
+
+  
+
+    /* ========================================
+       关于我们页面：清晰易读字体优化
+       目标：老人家看得清，同时保持版面和谐
+    ======================================== */
+
+    .about-page {
+      font-size: 16px;
+    }
+
+
+    /* ---------- 顶部导航 ---------- */
+
+    .about-page .brand-name strong {
+      font-size: 18px !important;
+    }
+
+    .about-page .brand-name small {
+      font-size: 9px !important;
+      letter-spacing: 1.8px !important;
+    }
+
+    .about-page .search-box input {
+      font-size: 13px !important;
+    }
+
+    .about-page .search-box button,
+    .about-page .login-button {
+      font-size: 13px !important;
+    }
+
+    .about-page .hot-search,
+    .about-page .hot-search a {
+      font-size: 11px !important;
+      line-height: 1.7 !important;
+    }
+
+    .about-page .nav-link {
+      font-size: 14px !important;
+      font-weight: 700 !important;
+    }
+
+
+    /* ---------- 首屏 ---------- */
+
+    .about-page .about-breadcrumb,
+    .about-page .about-breadcrumb a,
+    .about-page .about-breadcrumb strong {
+      font-size: 12px !important;
+    }
+
+    .about-page .about-eyebrow,
+    .about-page .about-visual-label {
+      font-size: 10px !important;
+      line-height: 1.6 !important;
+    }
+
+    .about-page .about-hero-content h1 {
+      line-height: 1.26 !important;
+    }
+
+    .about-page .about-hero-content h1 > span {
+      line-height: 1.45 !important;
+    }
+
+    .about-page .about-hero-content > p {
+      font-size: 15px !important;
+      line-height: 1.95 !important;
+    }
+
+    .about-page .about-primary-button,
+    .about-page .about-secondary-button {
+      font-size: 13px !important;
+      font-weight: 800 !important;
+    }
+
+    .about-page .about-visual-card p {
+      font-size: 11px !important;
+      line-height: 1.7 !important;
+    }
+
+
+    /* ---------- 公司能力概览 ---------- */
+
+    .about-page .about-overview-grid article > span {
+      font-size: 11px !important;
+    }
+
+    .about-page .about-overview-grid article > strong {
+      font-size: 17px !important;
+      line-height: 1.5 !important;
+    }
+
+    .about-page .about-overview-grid article > p {
+      font-size: 13px !important;
+      line-height: 1.85 !important;
+    }
+
+
+    /* ---------- 关于我们总标题 ---------- */
+
+    .about-page .about-section-heading > div > span {
+      font-size: 10px !important;
+      letter-spacing: 1.8px !important;
+    }
+
+    .about-page .about-section-heading h2 {
+      font-size: clamp(38px, 4vw, 49px) !important;
+      line-height: 1.28 !important;
+    }
+
+    .about-page .about-section-heading > p {
+      font-size: 14px !important;
+      line-height: 1.9 !important;
+    }
+
+
+    /* ---------- 四个切换栏目 ---------- */
+
+    .about-page .about-tabs {
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 12px !important;
+    }
+
+    .about-page .about-tab-button {
+      min-height: 108px !important;
+      padding: 21px 19px !important;
+    }
+
+    .about-page .about-tab-button > span {
+      width: 47px !important;
+      height: 47px !important;
+      flex: 0 0 47px !important;
+      font-size: 12px !important;
+    }
+
+    .about-page .about-tab-button strong {
+      font-size: 16px !important;
+      line-height: 1.45 !important;
+    }
+
+    .about-page .about-tab-button small {
+      margin-top: 7px !important;
+      font-size: 9px !important;
+      line-height: 1.45 !important;
+      letter-spacing: 1px !important;
+      white-space: normal !important;
+    }
+
+
+    /* ---------- 各栏目顶部 ---------- */
+
+    .about-page .about-panel-eyebrow {
+      font-size: 10px !important;
+      letter-spacing: 1.7px !important;
+    }
+
+    .about-page .about-panel-header h3 {
+      font-size: clamp(27px, 3vw, 32px) !important;
+      line-height: 1.42 !important;
+    }
+
+    .about-page .about-panel-header p {
+      font-size: 14px !important;
+      line-height: 1.9 !important;
+    }
+
+    .about-page .about-panel-number {
+      font-size: 16px !important;
+    }
+
+
+    /* ---------- 公司简介 ---------- */
+
+    .about-page .company-profile-eyebrow {
+      font-size: 10px !important;
+      letter-spacing: 1.6px !important;
+    }
+
+    .about-page .company-profile-content h4 {
+      font-size: 28px !important;
+      line-height: 1.42 !important;
+    }
+
+    .about-page .company-profile-text p {
+      font-size: 14px !important;
+      line-height: 2 !important;
+    }
+
+    .about-page .company-profile-image figcaption {
+      font-size: 11px !important;
+      line-height: 1.7 !important;
+    }
+
+    .about-page .company-profile-stat-grid strong {
+      font-size: 23px !important;
+      line-height: 1.25 !important;
+    }
+
+    .about-page .company-profile-stat-grid span {
+      font-size: 12px !important;
+      line-height: 1.6 !important;
+    }
+
+    .about-page .company-profile-actions a {
+      font-size: 13px !important;
+    }
+
+    .about-page .company-introduction-points article > span {
+      font-size: 11px !important;
+    }
+
+    .about-page .company-introduction-points strong {
+      font-size: 16px !important;
+      line-height: 1.45 !important;
+    }
+
+    .about-page .company-introduction-points p {
+      font-size: 13px !important;
+      line-height: 1.85 !important;
+    }
+
+
+    /* ---------- 企业文化 ---------- */
+
+    .about-page .company-culture-heading > span,
+    .about-page .company-development > div > span {
+      font-size: 10px !important;
+      letter-spacing: 1.6px !important;
+    }
+
+    .about-page .company-culture-heading h4,
+    .about-page .company-development h4 {
+      font-size: 27px !important;
+      line-height: 1.42 !important;
+    }
+
+    .about-page .company-culture-grid article > span {
+      font-size: 9px !important;
+    }
+
+    .about-page .company-culture-grid h5 {
+      font-size: 18px !important;
+      line-height: 1.45 !important;
+    }
+
+    .about-page .company-culture-grid p {
+      font-size: 13px !important;
+      line-height: 1.85 !important;
+    }
+
+    .about-page .company-development li {
+      font-size: 14px !important;
+      line-height: 1.85 !important;
+    }
+
+
+    /* ---------- 董事长寄语 ---------- */
+
+    .about-page .chairman-message-label {
+      font-size: 10px !important;
+      letter-spacing: 1.7px !important;
+    }
+
+    .about-page .chairman-message-copy h4 {
+      font-size: clamp(34px, 4vw, 44px) !important;
+      line-height: 1.35 !important;
+    }
+
+    .about-page .chairman-message-body p {
+      font-size: 14px !important;
+      line-height: 2 !important;
+    }
+
+    .about-page .chairman-message-body p strong {
+      font-size: inherit !important;
+      line-height: inherit !important;
+    }
+
+    .about-page .chairman-message-signature small {
+      font-size: 10px !important;
+      line-height: 1.6 !important;
+    }
+
+    .about-page .chairman-message-signature strong {
+      font-size: 15px !important;
+    }
+
+    .about-page .chairman-photo-placeholder strong {
+      font-size: 18px !important;
+    }
+
+    .about-page .chairman-photo-placeholder small {
+      font-size: 11px !important;
+    }
+
+    .about-page .chairman-person-information strong {
+      font-size: 15px !important;
+    }
+
+    .about-page .chairman-person-information span {
+      font-size: 10px !important;
+      line-height: 1.6 !important;
+    }
+
+    .about-page .chairman-vertical-title strong {
+      font-size: 22px !important;
+    }
+
+    .about-page .chairman-vertical-title span {
+      font-size: 9px !important;
+    }
+
+
+    /* ---------- 荣誉证书 ---------- */
+
+    .about-page .honor-documents-heading span {
+      font-size: 10px !important;
+      letter-spacing: 1.7px !important;
+    }
+
+    .about-page .honor-documents-heading h4 {
+      font-size: 28px !important;
+      line-height: 1.4 !important;
+    }
+
+    .about-page .honor-documents-heading > p {
+      font-size: 13px !important;
+      line-height: 1.85 !important;
+    }
+
+    .about-page .honor-certificate-content > span {
+      font-size: 10px !important;
+      line-height: 1.5 !important;
+    }
+
+    .about-page .honor-certificate-content h5 {
+      font-size: 20px !important;
+      line-height: 1.5 !important;
+    }
+
+    .about-page .honor-certificate-content p {
+      font-size: 13px !important;
+      line-height: 1.85 !important;
+    }
+
+    .about-page .honor-certificate-content a {
+      font-size: 12px !important;
+    }
+
+
+    /* ---------- 专利证书 ---------- */
+
+    .about-page .patent-showcase-heading div > span {
+      font-size: 10px !important;
+      letter-spacing: 1.7px !important;
+    }
+
+    .about-page .patent-showcase-heading h4 {
+      font-size: 28px !important;
+      line-height: 1.4 !important;
+    }
+
+    .about-page .patent-showcase-heading > p {
+      font-size: 13px !important;
+      line-height: 1.85 !important;
+    }
+
+    .about-page .patent-page-badge {
+      font-size: 10px !important;
+    }
+
+    .about-page .patent-card-labels > span {
+      font-size: 9px !important;
+      line-height: 1.5 !important;
+    }
+
+    .about-page .patent-card-labels > small {
+      font-size: 9px !important;
+    }
+
+    .about-page .patent-card-content h5 {
+      font-size: 19px !important;
+      line-height: 1.55 !important;
+    }
+
+    .about-page .patent-card-content p {
+      font-size: 13px !important;
+      line-height: 1.85 !important;
+    }
+
+    .about-page .patent-card-meta span {
+      font-size: 9px !important;
+    }
+
+    .about-page .patent-card-meta strong {
+      font-size: 11px !important;
+      line-height: 1.55 !important;
+      white-space: normal !important;
+    }
+
+    .about-page .patent-card-tip {
+      font-size: 10px !important;
+      line-height: 1.6 !important;
+    }
+
+
+    /* ---------- 业务许可证 ---------- */
+
+    .about-page .honor-license-content > span {
+      font-size: 9px !important;
+    }
+
+    .about-page .honor-license-content h5 {
+      font-size: 19px !important;
+      line-height: 1.5 !important;
+    }
+
+    .about-page .honor-license-content p {
+      font-size: 13px !important;
+      line-height: 1.8 !important;
+    }
+
+    .about-page .honor-license-card > a {
+      font-size: 12px !important;
+    }
+
+
+    /* ---------- 资质与服务能力 ---------- */
+
+    .about-page .qualification-image-card figcaption {
+      font-size: 11px !important;
+    }
+
+    .about-page .qualification-summary-eyebrow {
+      font-size: 10px !important;
+      letter-spacing: 1.6px !important;
+    }
+
+    .about-page .qualification-summary h4 {
+      font-size: 27px !important;
+      line-height: 1.42 !important;
+    }
+
+    .about-page .qualification-summary > p,
+    .about-page .qualification-summary-grid p,
+    .about-page .qualification-detail-grid p,
+    .about-page .qualification-notice p {
+      font-size: 13px !important;
+      line-height: 1.85 !important;
+    }
+
+    .about-page .qualification-summary-grid strong,
+    .about-page .qualification-detail-grid strong {
+      font-size: 16px !important;
+      line-height: 1.5 !important;
+    }
+
+    .about-page .qualification-detail-grid article > span,
+    .about-page .qualification-notice > span {
+      font-size: 10px !important;
+    }
+
+
+    /* ---------- 人才招聘 ---------- */
+
+    .about-page .career-vacancies-heading span,
+    .about-page .career-values-heading span {
+      font-size: 10px !important;
+      letter-spacing: 1.6px !important;
+    }
+
+    .about-page .career-vacancies-heading h4,
+    .about-page .career-values-heading h4,
+    .about-page .career-application-card h4 {
+      font-size: 27px !important;
+      line-height: 1.42 !important;
+    }
+
+    .about-page .career-vacancies-heading p,
+    .about-page .career-values-heading p,
+    .about-page .career-application-card p,
+    .about-page .career-notice p {
+      font-size: 13px !important;
+      line-height: 1.85 !important;
+    }
+
+    .about-page .career-job-category {
+      font-size: 10px !important;
+    }
+
+    .about-page .career-job-header h5 {
+      font-size: 21px !important;
+      line-height: 1.45 !important;
+    }
+
+    .about-page .career-job-count {
+      font-size: 11px !important;
+    }
+
+    .about-page .career-job-body h6 {
+      font-size: 16px !important;
+      line-height: 1.5 !important;
+    }
+
+    .about-page .career-job-body li {
+      font-size: 13px !important;
+      line-height: 1.85 !important;
+    }
+
+    .about-page .career-values-grid strong {
+      font-size: 17px !important;
+    }
+
+    .about-page .career-values-grid p,
+    .about-page .career-application-contact span,
+    .about-page .career-application-contact strong {
+      font-size: 13px !important;
+      line-height: 1.75 !important;
+    }
+
+
+    /* ---------- 下方服务与联系区域 ---------- */
+
+    .about-page .about-service-heading > span,
+    .about-page .about-contact-inner > div > span {
+      font-size: 10px !important;
+      letter-spacing: 1.7px !important;
+    }
+
+    .about-page .about-service-heading h2,
+    .about-page .about-contact-inner h2 {
+      font-size: clamp(31px, 3vw, 38px) !important;
+      line-height: 1.38 !important;
+    }
+
+    .about-page .about-service-grid h3 {
+      font-size: 20px !important;
+      line-height: 1.45 !important;
+    }
+
+    .about-page .about-service-grid p,
+    .about-page .about-contact-inner p,
+    .about-page .about-service-values span {
+      font-size: 13px !important;
+      line-height: 1.85 !important;
+    }
+
+    .about-page .about-contact-cta {
+      font-size: 13px !important;
+    }
+
+
+    /* ---------- 页脚 ---------- */
+
+    .about-page .site-footer .footer-small-title {
+      font-size: 10px !important;
+      letter-spacing: 1.4px !important;
+    }
+
+    .about-page .site-footer h3 {
+      font-size: 17px !important;
+      line-height: 1.45 !important;
+    }
+
+    .about-page .site-footer p,
+    .about-page .site-footer a,
+    .about-page .footer-bottom span {
+      font-size: 12px !important;
+      line-height: 1.8 !important;
+    }
+
+
+    /* ---------- 平板适配 ---------- */
+
+    @media (max-width: 1050px) {
+      .about-page .about-tabs {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+
+      .about-page .chairman-message-body p {
+        font-size: 14px !important;
+      }
+    }
+
+
+    /* ---------- 手机适配 ---------- */
+
+    @media (max-width: 700px) {
+      .about-page .about-tabs {
+        grid-template-columns: 1fr !important;
+      }
+
+      .about-page .about-tab-button {
+        min-height: 91px !important;
+      }
+
+      .about-page .about-section-heading h2 {
+        font-size: 35px !important;
+      }
+
+      .about-page .about-section-heading > p,
+      .about-page .about-panel-header p,
+      .about-page .company-profile-text p,
+      .about-page .chairman-message-body p {
+        font-size: 13px !important;
+      }
+
+      .about-page .about-panel-header h3 {
+        font-size: 25px !important;
+      }
+
+      .about-page .chairman-message-copy h4 {
+        font-size: 34px !important;
+      }
+
+      .about-page .patent-showcase-heading h4,
+      .about-page .honor-documents-heading h4,
+      .about-page .career-vacancies-heading h4,
+      .about-page .career-values-heading h4 {
+        font-size: 25px !important;
+      }
+
+      .about-page .site-footer p,
+      .about-page .site-footer a {
+        font-size: 11px !important;
+      }
+    }
+
+  
+
+    /* 董事长真实照片显示优化 */
+    .chairman-photo-frame > img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center center;
+      transform: scale(1.01);
+    }
+
+  
+
+/* ========================================
+   ABOUT FINAL TYPOGRAPHY
+   只放大字体与行高，不改变布局、颜色、尺寸和图片
+======================================== */
+
+body.about-page {
+  font-size: 17px !important;
+}
+
+/* 顶部 */
+body.about-page .brand-name strong {
+  font-size: 20px !important;
+  line-height: 1.35 !important;
+}
+
+body.about-page .brand-name small {
+  font-size: 10px !important;
+  line-height: 1.55 !important;
+}
+
+body.about-page .search-box input,
+body.about-page .search-box button,
+body.about-page .login-button {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+
+body.about-page .hot-search,
+body.about-page .hot-search a {
+  font-size: 12px !important;
+  line-height: 1.75 !important;
+}
+
+body.about-page .nav-link {
+  font-size: 15px !important;
+  line-height: 1.55 !important;
+}
+
+/* 首屏 */
+body.about-page .about-breadcrumb,
+body.about-page .about-breadcrumb a,
+body.about-page .about-breadcrumb strong {
+  font-size: 13px !important;
+  line-height: 1.65 !important;
+}
+
+body.about-page .about-eyebrow,
+body.about-page .about-visual-label {
+  font-size: 11px !important;
+  line-height: 1.65 !important;
+}
+
+body.about-page .about-hero-content h1 {
+  font-size: clamp(60px, 5.2vw, 82px) !important;
+  line-height: 1.12 !important;
+}
+
+body.about-page .about-hero-content h1 span {
+  font-size: 0.48em !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .about-hero-content > p {
+  font-size: 16px !important;
+  line-height: 2 !important;
+}
+
+body.about-page .about-primary-button,
+body.about-page .about-secondary-button {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+
+body.about-page .about-visual-card > strong {
+  font-size: 45px !important;
+  line-height: 1.25 !important;
+}
+
+body.about-page .about-visual-card > p {
+  font-size: 12px !important;
+  line-height: 1.75 !important;
+}
+
+/* 公司能力概览 */
+body.about-page .about-overview-grid article > span {
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .about-overview-grid strong {
+  font-size: 19px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .about-overview-grid p {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+/* 页面总标题 */
+body.about-page .about-section-heading div > span {
+  font-size: 11px !important;
+  line-height: 1.6 !important;
+}
+
+body.about-page .about-section-heading h2 {
+  font-size: clamp(40px, 4vw, 51px) !important;
+  line-height: 1.3 !important;
+}
+
+body.about-page .about-section-heading > p {
+  font-size: 15px !important;
+  line-height: 1.95 !important;
+}
+
+/* 四个栏目 */
+body.about-page .about-tab-button > span {
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+}
+
+body.about-page .about-tab-button strong {
+  font-size: 17px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .about-tab-button small {
+  font-size: 10px !important;
+  line-height: 1.55 !important;
+}
+
+/* 栏目标题 */
+body.about-page .about-panel-eyebrow {
+  font-size: 11px !important;
+  line-height: 1.65 !important;
+}
+
+body.about-page .about-panel-header h3 {
+  font-size: clamp(29px, 3vw, 34px) !important;
+  line-height: 1.45 !important;
+}
+
+body.about-page .about-panel-header p {
+  font-size: 15px !important;
+  line-height: 1.95 !important;
+}
+
+body.about-page .about-panel-number {
+  font-size: 57px !important;
+  line-height: 1 !important;
+}
+
+/* 公司简介 */
+body.about-page .company-profile-eyebrow,
+body.about-page .company-introduction-main > span {
+  font-size: 11px !important;
+  line-height: 1.6 !important;
+}
+
+body.about-page .company-profile-content h4,
+body.about-page .company-introduction-main h4 {
+  font-size: 29px !important;
+  line-height: 1.48 !important;
+}
+
+body.about-page .company-profile-text p,
+body.about-page .company-introduction-main p {
+  font-size: 15px !important;
+  line-height: 2.05 !important;
+}
+
+body.about-page .company-profile-image figcaption {
+  font-size: 12px !important;
+  line-height: 1.75 !important;
+}
+
+body.about-page .company-profile-stat-grid strong {
+  font-size: 25px !important;
+  line-height: 1.3 !important;
+}
+
+body.about-page .company-profile-stat-grid span {
+  font-size: 13px !important;
+  line-height: 1.65 !important;
+}
+
+body.about-page .company-profile-actions a,
+body.about-page .company-introduction-main > a {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+
+body.about-page .company-introduction-points article > span {
+  font-size: 12px !important;
+  line-height: 1.45 !important;
+}
+
+body.about-page .company-introduction-points strong {
+  font-size: 17px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .company-introduction-points p {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+/* 企业文化 */
+body.about-page .company-culture-heading > span,
+body.about-page .company-development div > span {
+  font-size: 11px !important;
+  line-height: 1.6 !important;
+}
+
+body.about-page .company-culture-heading h4,
+body.about-page .company-development h4 {
+  font-size: 29px !important;
+  line-height: 1.48 !important;
+}
+
+body.about-page .company-culture-grid article > span {
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .company-culture-grid h5 {
+  font-size: 20px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .company-culture-grid p {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+body.about-page .company-development li {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+/* 董事长寄语 */
+body.about-page .chairman-message-label {
+  font-size: 11px !important;
+  line-height: 1.65 !important;
+}
+
+body.about-page .chairman-message-copy h4 {
+  font-size: clamp(36px, 4vw, 46px) !important;
+  line-height: 1.4 !important;
+}
+
+body.about-page .chairman-message-body p {
+  font-size: 15px !important;
+  line-height: 2.05 !important;
+}
+
+body.about-page .chairman-message-body p strong {
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+body.about-page .chairman-message-signature small {
+  font-size: 11px !important;
+  line-height: 1.65 !important;
+}
+
+body.about-page .chairman-message-signature strong {
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .chairman-person-information strong {
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .chairman-person-information span {
+  font-size: 11px !important;
+  line-height: 1.65 !important;
+}
+
+body.about-page .chairman-vertical-title strong {
+  font-size: 24px !important;
+  line-height: 1.2 !important;
+}
+
+body.about-page .chairman-vertical-title span {
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+}
+
+/* 荣誉证书 */
+body.about-page .honor-documents-heading span,
+body.about-page .honors-introduction-content > span,
+body.about-page .honors-document-card > span {
+  font-size: 11px !important;
+  line-height: 1.6 !important;
+}
+
+body.about-page .honor-documents-heading h4,
+body.about-page .honors-introduction-content h4 {
+  font-size: 29px !important;
+  line-height: 1.45 !important;
+}
+
+body.about-page .honor-documents-heading > p,
+body.about-page .honors-introduction-content p {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+body.about-page .honor-certificate-content > span {
+  font-size: 11px !important;
+  line-height: 1.55 !important;
+}
+
+body.about-page .honor-certificate-content h5 {
+  font-size: 21px !important;
+  line-height: 1.55 !important;
+}
+
+body.about-page .honor-certificate-content p {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+body.about-page .honor-certificate-content a {
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+}
+
+body.about-page .honors-category-grid h4 {
+  font-size: 20px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .honors-category-grid p,
+body.about-page .honors-placeholder p {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+body.about-page .honors-category-grid small {
+  font-size: 11px !important;
+  line-height: 1.6 !important;
+}
+
+/* 专利 */
+body.about-page .patent-showcase-heading div > span {
+  font-size: 11px !important;
+  line-height: 1.6 !important;
+}
+
+body.about-page .patent-showcase-heading h4 {
+  font-size: 29px !important;
+  line-height: 1.45 !important;
+}
+
+body.about-page .patent-showcase-heading > p {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+body.about-page .patent-page-badge {
+  font-size: 11px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .patent-card-labels > span,
+body.about-page .patent-card-labels > small {
+  font-size: 10px !important;
+  line-height: 1.55 !important;
+}
+
+body.about-page .patent-card-content h5 {
+  font-size: 20px !important;
+  line-height: 1.6 !important;
+}
+
+body.about-page .patent-card-content p {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+body.about-page .patent-card-meta span {
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .patent-card-meta strong {
+  font-size: 12px !important;
+  line-height: 1.6 !important;
+}
+
+body.about-page .patent-card-tip {
+  font-size: 11px !important;
+  line-height: 1.65 !important;
+}
+
+/* 许可证与资质 */
+body.about-page .honor-license-content > span,
+body.about-page .qualification-summary-eyebrow,
+body.about-page .qualification-detail-grid article > span,
+body.about-page .qualification-notice > span {
+  font-size: 11px !important;
+  line-height: 1.6 !important;
+}
+
+body.about-page .honor-license-content h5 {
+  font-size: 20px !important;
+  line-height: 1.55 !important;
+}
+
+body.about-page .honor-license-content p,
+body.about-page .qualification-summary > p,
+body.about-page .qualification-summary-grid p,
+body.about-page .qualification-detail-grid p,
+body.about-page .qualification-notice p {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+body.about-page .honor-license-card > a {
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+}
+
+body.about-page .qualification-image-card figcaption {
+  font-size: 12px !important;
+  line-height: 1.7 !important;
+}
+
+body.about-page .qualification-summary h4 {
+  font-size: 29px !important;
+  line-height: 1.45 !important;
+}
+
+body.about-page .qualification-summary-grid strong,
+body.about-page .qualification-detail-grid strong {
+  font-size: 17px !important;
+  line-height: 1.55 !important;
+}
+
+/* 人才招聘 */
+body.about-page .career-vacancies-heading span,
+body.about-page .career-values-heading span,
+body.about-page .careers-hero-card div > span {
+  font-size: 11px !important;
+  line-height: 1.6 !important;
+}
+
+body.about-page .career-vacancies-heading h4,
+body.about-page .career-values-heading h4,
+body.about-page .career-application-card h4,
+body.about-page .careers-hero-card h4 {
+  font-size: 29px !important;
+  line-height: 1.45 !important;
+}
+
+body.about-page .career-vacancies-heading p,
+body.about-page .career-values-heading p,
+body.about-page .career-application-card p,
+body.about-page .career-notice p,
+body.about-page .careers-hero-card p {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+body.about-page .career-job-category {
+  font-size: 11px !important;
+  line-height: 1.55 !important;
+}
+
+body.about-page .career-job-header h5 {
+  font-size: 22px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .career-job-count {
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .career-job-body h6 {
+  font-size: 17px !important;
+  line-height: 1.55 !important;
+}
+
+body.about-page .career-job-body li,
+body.about-page .career-direction-grid p,
+body.about-page .career-direction-grid li {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+body.about-page .career-values-grid strong {
+  font-size: 18px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .career-values-grid p,
+body.about-page .career-application-contact span,
+body.about-page .career-application-contact strong {
+  font-size: 14px !important;
+  line-height: 1.85 !important;
+}
+
+/* 服务与联系 */
+body.about-page .about-service-heading > span,
+body.about-page .about-contact-inner > div > span {
+  font-size: 11px !important;
+  line-height: 1.6 !important;
+}
+
+body.about-page .about-service-heading h2,
+body.about-page .about-contact-inner h2 {
+  font-size: clamp(33px, 3vw, 40px) !important;
+  line-height: 1.42 !important;
+}
+
+body.about-page .about-service-grid h3 {
+  font-size: 21px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .about-service-grid p,
+body.about-page .about-contact-inner p,
+body.about-page .about-service-values span {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+}
+
+body.about-page .about-contact-cta {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+
+/* 页脚 */
+body.about-page .site-footer .footer-small-title {
+  font-size: 11px !important;
+  line-height: 1.6 !important;
+}
+
+body.about-page .site-footer h3 {
+  font-size: 18px !important;
+  line-height: 1.5 !important;
+}
+
+body.about-page .site-footer p,
+body.about-page .site-footer a,
+body.about-page .footer-bottom span {
+  font-size: 13px !important;
+  line-height: 1.85 !important;
+}
+
+/* 平板 */
+@media (max-width: 1050px) {
+  body.about-page .about-hero-content > p,
+  body.about-page .company-profile-text p,
+  body.about-page .chairman-message-body p {
+    font-size: 15px !important;
+  }
+}
+
+/* 手机 */
+@media (max-width: 700px) {
+  body.about-page {
+    font-size: 16px !important;
+  }
+
+  body.about-page .about-hero-content h1 {
+    font-size: 39px !important;
+  }
+
+  body.about-page .about-hero-content h1 span {
+    font-size: 22px !important;
+  }
+
+  body.about-page .about-hero-content > p,
+  body.about-page .about-section-heading > p,
+  body.about-page .about-panel-header p,
+  body.about-page .company-profile-text p,
+  body.about-page .chairman-message-body p {
+    font-size: 14px !important;
+  }
+
+  body.about-page .about-section-heading h2 {
+    font-size: 36px !important;
+  }
+
+  body.about-page .about-panel-header h3 {
+    font-size: 27px !important;
+  }
+
+  body.about-page .about-tab-button strong {
+    font-size: 16px !important;
+  }
+
+  body.about-page .about-tab-button small {
+    font-size: 9px !important;
+  }
+
+  body.about-page .chairman-message-copy h4 {
+    font-size: 35px !important;
+  }
+
+  body.about-page .honor-documents-heading h4,
+  body.about-page .patent-showcase-heading h4,
+  body.about-page .career-vacancies-heading h4,
+  body.about-page .career-values-heading h4 {
+    font-size: 27px !important;
+  }
+
+  body.about-page .site-footer p,
+  body.about-page .site-footer a {
+    font-size: 12px !important;
+  }
+}
+
   </style>
 
 </head>
@@ -696,7 +2426,7 @@
           </div>
 
           <p>
-            从公司发展、服务理念、企业文化、
+            从公司发展、董事长寄语、服务理念、企业文化、
             业务资质和人才建设等方面了解奥斯达通信。
           </p>
 
@@ -730,6 +2460,24 @@
 
           <button
             class="about-tab-button"
+            id="aboutTabChairman"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="aboutPanelChairman"
+            data-about-tab="chairman"
+          >
+            <span>02</span>
+
+            <div>
+              <strong>董事长寄语</strong>
+              <small>CHAIRMAN'S MESSAGE</small>
+            </div>
+          </button>
+
+
+          <button
+            class="about-tab-button"
             id="aboutTabHonors"
             type="button"
             role="tab"
@@ -737,7 +2485,7 @@
             aria-controls="aboutPanelHonors"
             data-about-tab="honors"
           >
-            <span>02</span>
+            <span>03</span>
 
             <div>
               <strong>荣誉资质</strong>
@@ -755,7 +2503,7 @@
             aria-controls="aboutPanelCareers"
             data-about-tab="careers"
           >
-            <span>03</span>
+            <span>04</span>
 
             <div>
               <strong>人才招聘</strong>
@@ -1101,6 +2849,167 @@
 
 
         <!-- ==============================
+             董事长寄语
+        =============================== -->
+        <section
+          class="about-tab-panel"
+          id="aboutPanelChairman"
+          role="tabpanel"
+          aria-labelledby="aboutTabChairman"
+          data-about-panel="chairman"
+          hidden
+        >
+
+          <div class="about-panel-header chairman-panel-heading">
+
+            <div>
+
+              <span class="about-panel-eyebrow">
+                CHAIRMAN'S MESSAGE
+              </span>
+
+              <h3>
+                董事长寄语
+              </h3>
+
+              <p>
+                以专业连接企业需求，以责任守护每一次交付，
+                与客户和合作伙伴共同创造长期价值。
+              </p>
+
+            </div>
+
+            <div class="about-panel-number">
+              02
+            </div>
+
+          </div>
+
+
+          <section class="chairman-message-card">
+
+            <!-- 左侧寄语正文 -->
+            <div class="chairman-message-copy">
+
+              <span class="chairman-message-label">
+                MESSAGE FROM THE CHAIRMAN
+              </span>
+
+              <h4>
+                用心连接，携手共赢
+              </h4>
+
+              <div class="chairman-message-body">
+
+                <p>
+                  <strong>
+                    奥斯达通信自2004年成立以来，
+                    始终专注于综合信息网络与企业通信服务。
+                  </strong>
+                  我们从深圳出发，持续完善网络资源、
+                  技术能力和项目服务体系，
+                  围绕互联网接入、IDC数据中心、企业灾备、
+                  地产配套通信及社区宽带运营等业务，
+                  为客户提供稳定、安全和高效的通信支持。
+                </p>
+
+                <p>
+                  <strong>
+                    我们始终相信，通信服务的价值不止于设备和网络的连接，
+                    更在于对客户业务的理解与长期责任。
+                  </strong>
+                  从前期需求分析、方案设计和工程实施，
+                  到项目交付、日常运维与持续优化，
+                  每一个环节都承载着客户对专业能力和服务品质的信任。
+                </p>
+
+                <p>
+                  <strong>
+                    面向企业数字化与新型信息基础设施的发展机遇，
+                    奥斯达通信将继续深耕核心业务。
+                  </strong>
+                  我们将依托自有网络资源、专业技术团队、
+                  多地骨干机房和传输节点，
+                  持续提升通信工程、系统集成、
+                  企业组网和7×24小时运维服务能力，
+                  为政企和地产客户提供更具持续性的综合解决方案。
+                </p>
+
+                <p>
+                  <strong>
+                    感谢客户、合作伙伴和全体员工长期以来的信任与支持。
+                  </strong>
+                  未来，我们将继续坚持“业绩为本、价值共享”的发展理念，
+                  以专业、责任、协作和持续改进为行动准则，
+                  与各方携手建设更加稳定、高效和可持续的数字连接能力。
+                </p>
+
+              </div>
+
+
+              <div class="chairman-message-signature">
+
+                <span></span>
+
+                <div>
+                  <small>深圳市奥斯达通信有限公司</small>
+                  <strong>董事长</strong>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- 董事长照片 -->
+            <div class="chairman-portrait-panel">
+
+              <div class="chairman-portrait-circle"></div>
+
+              <div class="chairman-photo-frame">
+
+                <img
+                  src="images/about/ostar-chairman-gong-biyun.jpg"
+                  alt="深圳市奥斯达通信有限公司董事长龚碧云"
+                  loading="lazy"
+                >
+
+              </div>
+
+
+              <div class="chairman-person-information">
+
+                <strong>
+                  龚碧云
+                </strong>
+
+                <span>
+                  深圳市奥斯达通信有限公司
+                  · 董事长
+                </span>
+
+              </div>
+
+
+              <div
+                class="chairman-vertical-title"
+                aria-hidden="true"
+              >
+
+                <strong>董事长</strong>
+
+                <span>CHAIRMAN</span>
+
+              </div>
+
+            </div>
+
+          </section>
+
+        </section>
+
+
+        <!-- ==============================
      荣誉资质 / 中国大陆业务资质
 =============================== -->
 <section
@@ -1133,7 +3042,7 @@
     </div>
 
     <div class="about-panel-number">
-      02
+      03
     </div>
 
   </div>
@@ -1388,9 +3297,9 @@
         </div>
 
         <p>
-          每项专利证书独立展示为一个卡片。
-          证书第1页与第2页将在同一卡片中每5秒自动滑动切换，
-          也可以使用左右按钮手动查看。
+          每项专利独立展示为一个卡片。
+          同一专利的证书页和专利公告图片会在同一卡片中
+          每5秒自动滑动切换，也可以使用左右按钮手动查看。
         </p>
 
       </div>
@@ -1413,7 +3322,7 @@
             >
               第
               <span data-patent-current>1</span>
-              页 / 共2页
+              页 / 共3页
             </div>
 
             <div class="patent-slider-viewport">
@@ -1447,6 +3356,20 @@
                   <img
                     src="images/honors/patent-5g-power-box-page-2.jpg"
                     alt="一种5G基站供电设备箱发明专利证书第2页"
+                    loading="lazy"
+                  >
+                </a>
+
+                <a
+                  class="patent-slide"
+                  href="images/honors/patent-5g-power-box-publication.png"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="查看一种5G基站供电设备箱发明专利公告图片"
+                >
+                  <img
+                    src="images/honors/patent-5g-power-box-publication.png"
+                    alt="一种5G基站供电设备箱发明专利公告图片"
                     loading="lazy"
                   >
                 </a>
@@ -1485,6 +3408,14 @@
                   type="button"
                   data-patent-dot="1"
                   aria-label="查看第2页"
+                  aria-selected="false"
+                ></button>
+
+                <button
+                  class="patent-slider-dot"
+                  type="button"
+                  data-patent-dot="2"
+                  aria-label="查看第3页"
                   aria-selected="false"
                 ></button>
               </div>
@@ -1558,7 +3489,7 @@
             >
               第
               <span data-patent-current>1</span>
-              页 / 共2页
+              页 / 共3页
             </div>
 
             <div class="patent-slider-viewport">
@@ -1592,6 +3523,20 @@
                   <img
                     src="images/honors/patent-data-terminal-page-2.jpg"
                     alt="一种基于通信技术用的数据传输终端实用新型专利证书第2页"
+                    loading="lazy"
+                  >
+                </a>
+
+                <a
+                  class="patent-slide"
+                  href="images/honors/patent-data-terminal-publication.png"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="查看一种基于通信技术用的数据传输终端实用新型专利公告图片"
+                >
+                  <img
+                    src="images/honors/patent-data-terminal-publication.png"
+                    alt="一种基于通信技术用的数据传输终端实用新型专利公告图片"
                     loading="lazy"
                   >
                 </a>
@@ -1630,6 +3575,14 @@
                   type="button"
                   data-patent-dot="1"
                   aria-label="查看第2页"
+                  aria-selected="false"
+                ></button>
+
+                <button
+                  class="patent-slider-dot"
+                  type="button"
+                  data-patent-dot="2"
+                  aria-label="查看第3页"
                   aria-selected="false"
                 ></button>
               </div>
@@ -1673,7 +3626,7 @@
 
               <div>
                 <span>证书页数</span>
-                <strong>共2页</strong>
+                <strong>共3张图片</strong>
               </div>
 
             </div>
@@ -1703,7 +3656,7 @@
             >
               第
               <span data-patent-current>1</span>
-              页 / 共2页
+              页 / 共3页
             </div>
 
             <div class="patent-slider-viewport">
@@ -1737,6 +3690,20 @@
                   <img
                     src="images/honors/patent-blockchain-server-holder-page-2.jpg"
                     alt="一种区块链电力互联网用服务器的放置装置实用新型专利证书第2页"
+                    loading="lazy"
+                  >
+                </a>
+
+                <a
+                  class="patent-slide"
+                  href="images/honors/patent-blockchain-server-holder-publication.png"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="查看一种区块链电力互联网用服务器的放置装置实用新型专利公告图片"
+                >
+                  <img
+                    src="images/honors/patent-blockchain-server-holder-publication.png"
+                    alt="一种区块链电力互联网用服务器的放置装置实用新型专利公告图片"
                     loading="lazy"
                   >
                 </a>
@@ -1775,6 +3742,14 @@
                   type="button"
                   data-patent-dot="1"
                   aria-label="查看第2页"
+                  aria-selected="false"
+                ></button>
+
+                <button
+                  class="patent-slider-dot"
+                  type="button"
+                  data-patent-dot="2"
+                  aria-label="查看第3页"
                   aria-selected="false"
                 ></button>
               </div>
@@ -1818,13 +3793,271 @@
 
               <div>
                 <span>证书页数</span>
-                <strong>共2页</strong>
+                <strong>共3张图片</strong>
               </div>
 
             </div>
 
             <div class="patent-card-tip">
               <span>图片每5秒自动切换</span>
+              <b>点击图片查看大图</b>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- 专利 4：互联网信息监控装置 -->
+        <article
+          class="patent-certificate-card"
+          data-patent-slider
+          data-interval="5000"
+        >
+
+          <div class="patent-slider-shell">
+
+            <div
+              class="patent-page-badge"
+              aria-live="polite"
+            >
+              第
+              <span data-patent-current>1</span>
+              页 / 共1页
+            </div>
+
+            <div class="patent-slider-viewport">
+
+              <div
+                class="patent-slider-track"
+                data-patent-track
+              >
+
+                <a
+                  class="patent-slide"
+                  href="images/honors/patent-internet-monitoring-publication.png"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="查看互联网信息监控装置实用新型专利公告图片"
+                >
+                  <img
+                    src="images/honors/patent-internet-monitoring-publication.png"
+                    alt="互联网信息监控装置实用新型专利公告图片"
+                    loading="lazy"
+                  >
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="patent-card-content">
+
+            <div class="patent-card-labels">
+              <span>UTILITY MODEL PATENT</span>
+              <small>实用新型专利</small>
+            </div>
+
+            <h5>
+              互联网信息监控装置
+            </h5>
+
+            <p>
+              国家知识产权局公开的实用新型专利公告，
+              专利权人为深圳市奥斯达通信有限公司。
+            </p>
+
+            <div class="patent-card-meta">
+
+              <div>
+                <span>申请号</span>
+                <strong>202421924686.9</strong>
+              </div>
+
+              <div>
+                <span>授权公告日</span>
+                <strong>2025年6月17日</strong>
+              </div>
+
+            </div>
+
+            <div class="patent-card-tip">
+              <span>单页专利公告</span>
+              <b>点击图片查看大图</b>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- 专利 5：一种组合式云计算服务器摆放架 -->
+        <article
+          class="patent-certificate-card"
+          data-patent-slider
+          data-interval="5000"
+        >
+
+          <div class="patent-slider-shell">
+
+            <div
+              class="patent-page-badge"
+              aria-live="polite"
+            >
+              第
+              <span data-patent-current>1</span>
+              页 / 共1页
+            </div>
+
+            <div class="patent-slider-viewport">
+
+              <div
+                class="patent-slider-track"
+                data-patent-track
+              >
+
+                <a
+                  class="patent-slide"
+                  href="images/honors/patent-cloud-server-rack-publication.png"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="查看一种组合式云计算服务器摆放架实用新型专利公告图片"
+                >
+                  <img
+                    src="images/honors/patent-cloud-server-rack-publication.png"
+                    alt="一种组合式云计算服务器摆放架实用新型专利公告图片"
+                    loading="lazy"
+                  >
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="patent-card-content">
+
+            <div class="patent-card-labels">
+              <span>UTILITY MODEL PATENT</span>
+              <small>实用新型专利</small>
+            </div>
+
+            <h5>
+              一种组合式云计算服务器摆放架
+            </h5>
+
+            <p>
+              国家知识产权局公开的实用新型专利公告，
+              专利权人为深圳市奥斯达通信有限公司。
+            </p>
+
+            <div class="patent-card-meta">
+
+              <div>
+                <span>申请号</span>
+                <strong>202121407815.3</strong>
+              </div>
+
+              <div>
+                <span>授权公告日</span>
+                <strong>2021年12月31日</strong>
+              </div>
+
+            </div>
+
+            <div class="patent-card-tip">
+              <span>单页专利公告</span>
+              <b>点击图片查看大图</b>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- 专利 6：一种计算机信息安全监测装置 -->
+        <article
+          class="patent-certificate-card"
+          data-patent-slider
+          data-interval="5000"
+        >
+
+          <div class="patent-slider-shell">
+
+            <div
+              class="patent-page-badge"
+              aria-live="polite"
+            >
+              第
+              <span data-patent-current>1</span>
+              页 / 共1页
+            </div>
+
+            <div class="patent-slider-viewport">
+
+              <div
+                class="patent-slider-track"
+                data-patent-track
+              >
+
+                <a
+                  class="patent-slide"
+                  href="images/honors/patent-information-security-monitor-publication.png"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="查看一种计算机信息安全监测装置实用新型专利公告图片"
+                >
+                  <img
+                    src="images/honors/patent-information-security-monitor-publication.png"
+                    alt="一种计算机信息安全监测装置实用新型专利公告图片"
+                    loading="lazy"
+                  >
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="patent-card-content">
+
+            <div class="patent-card-labels">
+              <span>UTILITY MODEL PATENT</span>
+              <small>实用新型专利</small>
+            </div>
+
+            <h5>
+              一种计算机信息安全监测装置
+            </h5>
+
+            <p>
+              国家知识产权局公开的实用新型专利公告，
+              专利权人为深圳市奥斯达通信有限公司。
+            </p>
+
+            <div class="patent-card-meta">
+
+              <div>
+                <span>申请号</span>
+                <strong>202121403510.5</strong>
+              </div>
+
+              <div>
+                <span>授权公告日</span>
+                <strong>2021年12月17日</strong>
+              </div>
+
+            </div>
+
+            <div class="patent-card-tip">
+              <span>单页专利公告</span>
               <b>点击图片查看大图</b>
             </div>
 
@@ -2109,7 +4342,7 @@
     </div>
 
     <div class="about-panel-number">
-      03
+      04
     </div>
 
   </div>
@@ -2610,6 +4843,7 @@
         <div>
           <h3>关于奥斯达</h3>
           <a href="about.html#company">公司介绍</a>
+          <a href="about.html#chairman">董事长寄语</a>
           <a href="about.html#honors">荣誉资质</a>
           <a href="about.html#careers">人才招聘</a>
         </div>
